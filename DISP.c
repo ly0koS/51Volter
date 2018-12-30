@@ -20,30 +20,24 @@ extern data uchar  param[9];
 
 void display(uchar d1,d2)
 {
-	if(d1==0x05)
-	{
-		
-	}
-	else if(d1==0x00)
-	{
-		
-	}
+	disp[0]=d1;
+	disp[1]=param[6];
 	if(d2==0x0f)
 	{
 		switch(param[6])
 		{
 			case(1):
 			{
-				disp[0]=param[1]%10;
-				disp[1]=param[1]/10;
+				disp[7]=param[1]%10;
+				disp[6]=param[1]/10;
 				break;
 			}
 			case(2):
 			{
-				disp[3]=param[3];
-				disp[2]=param[4]/100;
-				disp[1]=(param[4]/10)%10;
-				disp[0]=param[4]%10;
+				disp[4]=param[3];
+				disp[3]=param[4]/100;
+				disp[2]=(param[4]/10)%10;
+				disp[1]=param[4]%10;
 				break;
 			}
 		}
@@ -54,14 +48,14 @@ void display(uchar d1,d2)
 		{
 			case(1):
 			{
-				disp[0]=param[2]%10;
-				disp[1]=param[2]/10;
+				disp[7]=param[2]%10;
+				disp[6]=param[2]/10;
 				break;
 			}
 			case(2):
 			{
-				disp[0]=param[5]%10;
-				disp[1]=param[5]/10;
+				disp[7]=param[5]%10;
+				disp[6]=param[5]/10;
 				break;
 			}
 		}
