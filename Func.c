@@ -5,7 +5,7 @@ sbit erflags=PSW^5;
 
 extern data uchar  param[9];
 
-void Calculate(uchar c)
+void Calculate(uchar in)
 {
 	
 }

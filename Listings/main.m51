@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    12/30/2018  19:04:49  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    12/30/2018  19:33:31  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Objects\main (DISP)
             CODE    029EH     000FH     UNIT         ?PR?START?I2C
             CODE    02ADH     000FH     UNIT         ?PR?CACK?I2C
             CODE    02BCH     0006H     UNIT         ?PR?DELAY5US?I2C
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 2
 
 
             CODE    02C2H     0005H     UNIT         ?PR?DELAY4US?I2C
@@ -119,7 +119,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   B:0090H.4       PUBLIC        LE1
   B:0090H.5       PUBLIC        LE2
   D:003BH         PUBLIC        key
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 3
 
 
   C:0003H         PUBLIC        sled_bit
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   -------         PROC          _DELAY
   D:0007H         SYMBOL        ti
   -------         DO            
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 4
 
 
   D:0006H         SYMBOL        t
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   D:0088H         PUBLIC        TCON
   B:00A8H.1       PUBLIC        ET0
   B:00A8H.3       PUBLIC        ET1
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 5
 
 
   D:008CH         PUBLIC        TH0
@@ -272,11 +272,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:026FH         LINE#         39
   C:026FH         LINE#         40
   C:026FH         LINE#         41
-  C:0272H         LINE#         43
+  C:0272H         LINE#         42
   -------         ENDPROC       MAIN
   -------         PROC          OUTPUT
-  C:001AH         LINE#         48
-  C:001AH         LINE#         51
+  C:001AH         LINE#         47
+  C:001AH         LINE#         50
   -------         ENDPROC       OUTPUT
   -------         ENDMOD        MAIN
 
@@ -299,7 +299,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   B:00B0H.6       PUBLIC        scl
   C:01A5H         PUBLIC        RcvByte
   C:000EH         PUBLIC        NoAck
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 6
 
 
   D:00C8H         PUBLIC        T2CON
@@ -359,7 +359,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:02ADH         LINE#         54
   C:02AFH         LINE#         55
   C:02B1H         LINE#         56
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 7
 
 
   C:02B3H         LINE#         57
@@ -419,7 +419,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:02C2H         LINE#         102
   C:02C2H         LINE#         103
   C:02C6H         LINE#         104
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 8
 
 
   -------         ENDPROC       DELAY4US
@@ -446,7 +446,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   B:00D0H.5       PUBLIC        erflags
   D:00D0H         PUBLIC        PSW
   -------         PROC          _CALCULATE
-  D:0043H         SYMBOL        c
+  D:0043H         SYMBOL        in
   C:02C7H         LINE#         8
   C:02C9H         LINE#         9
   C:02C9H         LINE#         11
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:017AH         LINE#         32
   C:017FH         LINE#         33
   C:0182H         LINE#         34
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 9
 
 
   C:0185H         LINE#         35
@@ -539,7 +539,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
     SEGMENT: ?PR?STOP?I2C
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:04:49  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  12/30/2018  19:33:31  PAGE 10
 
 
     SEGMENT: ?PR?ACK?I2C
