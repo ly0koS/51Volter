@@ -1,5 +1,8 @@
 #include "Func.h"
 #define uchar unsigned char
+	
+extern data uchar  param[9];
+
 void Calculate(uchar c)
 {
 	
