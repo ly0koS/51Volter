@@ -28,9 +28,9 @@ compiling main.c...
 main.c(44): warning C294: unreachable code
 compiling I2C.c...
 compiling Func.c...
-Func.c(6): warning C280: 'c': unreferenced local variable
-Func.c(21): warning C173: missing return-expression
-Func.c(21): warning C290: missing return value
+Func.c(8): warning C280: 'c': unreferenced local variable
+Func.c(23): warning C173: missing return-expression
+Func.c(23): warning C290: missing return value
 assembling STARTUP.A51...
 linking...
 *** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
@@ -41,24 +41,18 @@ linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY?DISP
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?START?I2C
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?STOP?I2C
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?ACK?I2C
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?NOACK?I2C
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?CACK?I2C
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_SENDBYTE?I2C
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?RCVBYTE?I2C
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_CALCULATE?FUNC
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?WRITE24C02?FUNC
-Program Size: data=68.5 xdata=0 code=657
+Program Size: data=69.5 xdata=0 code=715
 Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
