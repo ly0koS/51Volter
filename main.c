@@ -25,7 +25,6 @@ data uint para1,para2;
 
 int main()
 {
-	uchar temp;
 	EA=1;
 	ET0=1;
 	ET1=1;
@@ -39,11 +38,8 @@ int main()
 	
 	while(1)
 	{
-		temp=read24c02();
-		if(temp==0x55)
-		{
-			
-		}
+		read24c02();
+		
 	}
 	return 0;
 }

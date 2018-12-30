@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              12/30/2018 17:10:45 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              12/30/2018 17:51:04 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -17,14 +17,22 @@ line level    source
 *** WARNING C280 IN LINE 3 OF Func.c: 'c': unreferenced local variable
    7          uchar read24c02(void)
    8          {
-   9   1        
-  10   1      }
-*** WARNING C173 IN LINE 10 OF Func.c: missing return-expression
-  11          void write24c02(void)
-  12          {
-  13   1        
-  14   1      }
-*** WARNING C290 IN LINE 10 OF Func.c: missing return value
+   9   1        uchar temp;
+  10   1        if(temp==0x55)
+  11   1        {
+  12   2          
+  13   2        }
+  14   1        else
+  15   1        {
+  16   2          
+  17   2        }
+  18   1      }
+*** WARNING C173 IN LINE 18 OF Func.c: missing return-expression
+  19          void write24c02(void)
+  20          {
+  21   1        
+  22   1      }
+*** WARNING C290 IN LINE 18 OF Func.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -32,7 +40,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       1
+   DATA SIZE        =   ----       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

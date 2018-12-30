@@ -25,14 +25,17 @@ Project File Date:  12/30/2018
 Rebuild target 'Target 1'
 compiling DISP.c...
 compiling main.c...
-main.c(48): warning C294: unreachable code
+main.c(44): warning C294: unreachable code
 compiling I2C.c...
 compiling Func.c...
 Func.c(3): warning C280: 'c': unreferenced local variable
-Func.c(10): warning C173: missing return-expression
-Func.c(10): warning C290: missing return value
+Func.c(18): warning C173: missing return-expression
+Func.c(18): warning C290: missing return value
 assembling STARTUP.A51...
 linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DISP
+    MODULE:  .\Objects\main.obj (MAIN)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DISPLAY?DISP
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -55,10 +58,9 @@ linking...
     SEGMENT: ?PR?_CALCULATE?FUNC
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?WRITE24C02?FUNC
-Program Size: data=62.5 xdata=0 code=548
-creating hex file from ".\Objects\main"...
-".\Objects\main" - 0 Error(s), 15 Warning(s).
-Build Time Elapsed:  00:00:01
+Program Size: data=69.5 xdata=0 code=654
+Target not created.
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
