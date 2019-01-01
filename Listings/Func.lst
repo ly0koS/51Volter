@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              12/30/2018 19:33:30 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/01/2019 15:50:45 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -17,41 +17,44 @@ line level    source
    7          
    8          void Calculate(uchar in)
    9          {
-  10   1        
-  11   1      }
+  10   1        if(param[6]==1)
+  11   1        {
+  12   2          
+  13   2        }
+  14   1      }
 *** WARNING C280 IN LINE 8 OF Func.c: 'in': unreferenced local variable
-  12          uchar read24c02(void)
-  13          {
-  14   1        uchar temp;
-  15   1        if(temp==0x55)
-  16   1        {
-  17   2          
-  18   2        }
-  19   1        else
-  20   1        {
-  21   2          
-  22   2        }
-  23   1      }
-*** WARNING C173 IN LINE 23 OF Func.c: missing return-expression
-  24          void write24c02(void)
-  25          {
-  26   1        uchar i;
-  27   1        sen:  erflags=0;              
-  28   1          Start( );               
-  29   1          SendByte(0x90);         
-  30   1          cAck( );              
-  31   1          if(erflags==1) goto sen;      
-  32   1          SendByte(0x00);           
+  15          uchar read24c02(void)
+  16          {
+  17   1        uchar temp;
+  18   1        if(temp==0x55)
+  19   1        {
+  20   2          
+  21   2        }
+  22   1        else
+  23   1        {
+  24   2          
+  25   2        }
+  26   1      }
+*** WARNING C173 IN LINE 26 OF Func.c: missing return-expression
+  27          void write24c02(void)
+  28          {
+  29   1        uchar i;
+  30   1        sen:  erflags=0;              
+  31   1          Start( );               
+  32   1          SendByte(0x90);         
   33   1          cAck( );              
-  34   1          if(erflags==1) goto sen;  
-  35   1        for(i=0;i<8;i++)
-  36   1        {
-  37   2          SendByte(param[i]);             
-  38   2          cAck( );
-  39   2        }
-  40   1        
-  41   1      }
-*** WARNING C290 IN LINE 23 OF Func.c: missing return value
+  34   1          if(erflags==1) goto sen;      
+  35   1          SendByte(0x00);           
+  36   1          cAck( );              
+  37   1          if(erflags==1) goto sen;  
+  38   1        for(i=0;i<8;i++)
+  39   1        {
+  40   2          SendByte(param[i]);             
+  41   2          cAck( );
+  42   2        }
+  43   1        
+  44   1      }
+*** WARNING C290 IN LINE 26 OF Func.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -59,11 +62,11 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
+C51 COMPILER V9.59.0.0   FUNC                                                              01/01/2019 15:50:45 PAGE 2   
+
    DATA SIZE        =   ----       3
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
-C51 COMPILER V9.59.0.0   FUNC                                                              12/30/2018 19:33:30 PAGE 2   
-
 END OF MODULE INFORMATION.
 
 

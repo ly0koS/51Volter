@@ -7,7 +7,10 @@ extern data uchar  param[9];
 
 void Calculate(uchar in)
 {
-	
+	if(param[6]==1)
+	{
+		
+	}
 }
 uchar read24c02(void)
 {

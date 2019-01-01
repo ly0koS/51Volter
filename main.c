@@ -4,20 +4,12 @@
 #define uchar unsigned char
 #define uint unsigned int
 
-sbit OE=P1^3;
-sbit LE1=P1^4;
-sbit LE2=P1^5;
-sbit K1=P2^0;
-sbit K2=P2^1;
-sbit recout=P1^0;
-
 bit erflags;
 bit setup;
 bit selectwp;
 bit rise;
 bit setupend;
 
-data uchar disp[8]={16,16,16,16,16,16,16,16};
 data uchar  param[9];
 data uchar  p;
 data uchar  hide;
@@ -34,8 +26,6 @@ int main()
 	TL0=0x0c;
 	TR0=1;
 	TR1=1;
-	OE=0;
-	
 	while(1)
 	{
 		read24c02();
@@ -47,4 +37,15 @@ int main()
 void output(void) interrupt 3
 {
 	
+	TR1=0;
+	TH1=para1/256;
+	TL1=para1%256;
+	if(param[6]==1)
+	{
+		if(rise)
+		{}
+		else
+		{}
+	}
+	TR1=1;
 }
