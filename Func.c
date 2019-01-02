@@ -16,6 +16,7 @@ void Calculate()
 	{
 		g=10^6/param[1]/32;
 		para1=65536-g;
+		para2=param[2];
 	}
 	if(param[6]==2)
 	{

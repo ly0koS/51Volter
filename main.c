@@ -4,6 +4,8 @@
 #define uchar unsigned char
 #define uint unsigned int
 
+sbit recout=P1^0;
+
 bit erflags;
 bit setup;
 bit selectwp;
@@ -14,6 +16,9 @@ data uchar  param[9];
 data uchar  p;
 data uchar  hide;
 data uint para1,para2;
+data uchar da;
+data uchar so;
+
 
 int main()
 {
@@ -38,14 +43,50 @@ void output(void) interrupt 3
 {
 	
 	TR1=0;
-	TH1=para1/256;
-	TL1=para1%256;
 	if(param[6]==1)
 	{
+		TH1=para1/256;
+		TL1=para1%256;
 		if(rise)
-		{}
+		{
+			if(da<240)
+			{
+				da=da+16;
+			}
+			else if(da==240)
+			{
+				da=255;
+				rise=0;
+			}
+		}
 		else
-		{}
+		{
+			if(da>16)
+			{
+				da=da-16;
+			}
+			else
+			{
+				da=0;
+				rise=1;
+			}
+		}
+		so=para2*da/50;
+		/*Add I2C DAC Code*/
+	}
+	else if(param[6]==2)
+	{
+		recout=~recout;
+		if(recout)  
+		{
+			TH1=para1/256;
+			TL1=para1%256; 
+		}
+		else	   
+		{
+			TH1=para2/256;
+			TL1=para2%256; 
+		}
 	}
 	TR1=1;
 }
