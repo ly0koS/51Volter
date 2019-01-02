@@ -42,10 +42,14 @@ linking...
     SEGMENT: ?PR?NOACK?I2C
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?CALCULATE?FUNC
-Program Size: data=60.5 xdata=0 code=1187
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_SENDBYTE?I2C
+    CALLER1: ?PR?OUTPUT?MAIN
+    CALLER2: ?C_C51STARTUP
+Program Size: data=62.5 xdata=0 code=1231
 creating hex file from ".\Objects\main"...
-".\Objects\main" - 0 Error(s), 8 Warning(s).
-Build Time Elapsed:  00:00:02
+".\Objects\main" - 0 Error(s), 9 Warning(s).
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

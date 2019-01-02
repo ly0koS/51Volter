@@ -73,6 +73,16 @@ void output(void) interrupt 3
 		}
 		so=para2*da/50;
 		/*Add I2C DAC Code*/
+		sen:	erflags=0;						  
+			Start( ); 							
+			SendByte(0x90); 				
+			cAck( );							
+			if(erflags==1) goto sen;			
+			SendByte(0x00); 					
+			cAck( );							
+			if(erflags==1) goto sen;	
+		SendByte(so);
+		cAck();
 	}
 	else if(param[6]==2)
 	{
