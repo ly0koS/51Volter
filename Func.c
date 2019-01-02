@@ -28,10 +28,24 @@ void Calculate()
 }
 uchar read24c02(void)
 {
-	uchar temp;
+	uchar temp,i;
+	sen:	erflags=0;
+		Start();
+		SendByte(0x90); 				
+		cAck( );							
+		if(erflags==1) goto sen;			
+		SendByte(0x00); 					
+		cAck( );							
+		if(erflags==1) goto sen;
+	temp=RcvByte();
+	Ack();
 	if(temp==0x55)
 	{
-		
+		for(i=1;i<8;i++)
+		{
+			param[i]=RcvByte();
+			cAck();
+		}
 	}
 	else
 	{

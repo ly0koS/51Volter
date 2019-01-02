@@ -8,7 +8,7 @@ Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Jeremy Shen, lyoko, LIC=----
  
 Tool Versions:
-Toolchain:       MDK51 Professional  Version: 9.59.0.0
+Toolchain:       PK51 Prof. Develpers Kit  Version: 9.59.0.0
 Toolchain Path:  C:\Keil_v5\C51\BIN
 C Compiler:      C51.exe V9.59.0.0
 Assembler:       A51.exe V8.2.7.0
@@ -18,7 +18,7 @@ Hex Converter:   OH51.exe V2.7.0.0
 CPU DLL:         S8051.DLL V3.122.0.0
 Dialog DLL:      DP51.DLL V2.66.0.0 
 <h2>Project:</h2>
-C:\Users\ly0ko\OneDrive\Documents\Study\8051\homework\Project_Volter\Project_Volter.uvproj
+C:\Users\shenyuyang\OneDrive\Documents\Study\8051\homework\Project_Volter\Project_Volter.uvproj
 Project File Date:  12/30/2018
 
 <h2>Output:</h2>
@@ -28,9 +28,8 @@ compiling main.c...
 main.c(33): warning C294: unreachable code
 compiling I2C.c...
 compiling Func.c...
-Func.c(8): warning C280: 'in': unreferenced local variable
-Func.c(26): warning C173: missing return-expression
-Func.c(26): warning C290: missing return value
+Func.c(54): warning C173: missing return-expression
+Func.c(54): warning C290: missing return value
 assembling STARTUP.A51...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -40,17 +39,13 @@ linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?STOP?I2C
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?ACK?I2C
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?NOACK?I2C
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?RCVBYTE?I2C
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_CALCULATE?FUNC
-Program Size: data=61.5 xdata=0 code=727
+    SEGMENT: ?PR?CALCULATE?FUNC
+Program Size: data=58.5 xdata=0 code=1026
 creating hex file from ".\Objects\main"...
-".\Objects\main" - 0 Error(s), 11 Warning(s).
-Build Time Elapsed:  00:00:02
+".\Objects\main" - 0 Error(s), 8 Warning(s).
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>
