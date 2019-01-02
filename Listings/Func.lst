@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              01/01/2019 15:50:45 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/01/2019 19:19:13 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -32,7 +32,7 @@ line level    source
   21   2        }
   22   1        else
   23   1        {
-  24   2          
+  24   2          write24c02();
   25   2        }
   26   1      }
 *** WARNING C173 IN LINE 26 OF Func.c: missing return-expression
@@ -58,11 +58,11 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     63    ----
+   CODE SIZE        =     72    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-C51 COMPILER V9.59.0.0   FUNC                                                              01/01/2019 15:50:45 PAGE 2   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/01/2019 19:19:13 PAGE 2   
 
    DATA SIZE        =   ----       3
    IDATA SIZE       =   ----    ----

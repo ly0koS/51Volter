@@ -5,11 +5,10 @@
 
 #define uchar unsigned char
 
-void Start(void);
-void Stop(void);
-void Ack(void);
-void Ack(void);
-void NoAck(void);
+void Start(void);                           //起始信号
+void Stop(void);                            //终止信号
+void Ack(void);                             //应答信号
+void NoAck(void);                           //非应答信号
 void cAck(void);
 void SendByte(unsigned char send);
 unsigned char RcvByte(void);
