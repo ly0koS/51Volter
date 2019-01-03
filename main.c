@@ -39,15 +39,20 @@ int main()
 		keynum=keyscan();
 		if(keynum==12)
 		{
-			if(setup)
+			if(setup==1)
 			{
-				if(setupend)
+				if(setupend==1)
 				{
 					write24c02;
 					Calculate();
 				}
 				setup=0;
 				display(0,15);
+			}
+			else
+			{
+				setup=1;
+				display(5,15);
 			}
 		}
 	}
