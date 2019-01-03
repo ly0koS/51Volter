@@ -22,6 +22,7 @@ data uchar so;
 
 int main()
 {
+	int keynum;
 	EA=1;
 	ET0=1;
 	ET1=1;
@@ -34,6 +35,21 @@ int main()
 	while(1)
 	{
 		read24c02();
+		display(0,15);
+		keynum=keyscan();
+		if(keynum==12)
+		{
+			if(setup)
+			{
+				if(setupend)
+				{
+					write24c02;
+					Calculate();
+				}
+				setup=0;
+				display(0,15);
+			}
+		}
 	}
 	return 0;
 }

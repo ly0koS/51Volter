@@ -450,14 +450,19 @@
               <FilePath>.\Func.c</FilePath>
             </File>
             <File>
-              <FileName>Func.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Func.h</FilePath>
-            </File>
-            <File>
               <FileName>STARTUP.A51</FileName>
               <FileType>2</FileType>
               <FilePath>.\STARTUP.A51</FilePath>
+            </File>
+            <File>
+              <FileName>DISP.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DISP.h</FilePath>
+            </File>
+            <File>
+              <FileName>Func.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Func.h</FilePath>
             </File>
           </Files>
         </Group>

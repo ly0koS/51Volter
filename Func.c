@@ -2,6 +2,8 @@
 #define uchar unsigned char
 #define uint unsigned int
 
+#define key P2
+
 sbit erflags=PSW^5;
 
 extern data uchar  param[9];
@@ -27,7 +29,7 @@ void Calculate()
 		para2=65546-g2;
 	}
 }
-uchar read24c02(void)
+void read24c02(void)
 {
 	uchar temp,i;
 	sen:	erflags=0;
@@ -69,5 +71,34 @@ void write24c02(void)
 		SendByte(param[i]); 						
 		cAck( );
 	}
-	
+}
+
+int keyscan()
+{
+	uchar t,temp;
+	key=0xf0;           
+  if(key!=0xf0)
+  {
+		delay(10);      
+		if(key!=0xf0)
+		{
+			 switch(key)
+			 {
+				 case(0xe0):temp=0;break;
+				 case(0xd0):temp=1;break;
+				 case(0xb0):temp=2;break;
+				 case(0x70):temp=3;break;
+			}
+			key=0x0f;
+			delay(10);
+			switch(key)
+			{
+				case(0x0e):temp=temp;break;
+				case(0x0d):temp=temp+4;break;
+				case(0x0b):temp=temp+8;break;
+				case(0x07):temp=temp+12;break;
+			}
+		}
+  }
+	return temp;
 }
