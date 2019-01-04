@@ -19,6 +19,7 @@ data uint para1,para2;
 data uchar da;
 data uchar so;
 
+extern uchar disp[8];
 
 int main()
 {
@@ -52,6 +53,23 @@ int main()
 			else
 			{
 				setup=1;
+				display(5,15);
+			}
+		}
+		if(keynum==13)
+		{
+			if(selectwp==1)
+			{
+				switch(param[6])
+				{
+					case(1):param[6]=2;break;
+					case(2):param[6]=1;break;
+				}
+			}
+			else
+			{
+				/*k=1 ??? */
+				disp[1]=1;
 				display(5,15);
 			}
 		}
