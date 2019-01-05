@@ -45,86 +45,88 @@ int main()
 		read24c02();
 		display(0,15);
 		keynum=keyscan();
-		if(setup==0)
+		if(keynum==12)
 		{
-			 if(keynum==12)
+			if(setup==1)
 			{
-				if(setup==1)
+				if(setupend==1)
 				{
-					if(setupend==1)
-					{
-						write24c02;
-						Calculate();
-					}
-					setup=0;
-					display(0,15);
+					write24c02;
+					Calculate();
+					setupend=0;
 				}
-				else
+				setup=0;
+				display(0,15);
+			}
+			else
+			{
+				setup=1;
+				display(5,15);
+			}
+		}
+		if(keynum==13)
+		{
+			if(selectwp==1)
+			{
+				switch(param[6])
 				{
-					setup=1;
-					display(5,15);
+					case(1):param[6]=2;break;
+					case(2):param[6]=1;break;
 				}
 			}
-			if(keynum==13)
+			else
 			{
-				if(selectwp==1)
+				k=1;
+				disp[k]=1;
+				display(5,15);
+			}
+		}
+		if(keynum==14)
+		{
+			if(setup==1)
+			{
+				if(d2!=15)
+					d2=15;
+				if(keynum==110)
 				{
-					switch(param[6])
+					if(param[6]==1&&k>6)
+						k=k-1;
+					else if(param[6]==2&&k>4)											//What if in Vpp mode?
+						k=k-1;
+				}
+				if(keynum==120)
+				{
+					if(param[6]==1)
 					{
-						case(1):param[6]=2;break;
-						case(2):param[6]=1;break;
+						if(k<6)
+							k=6;
+						else if(disp[6]==5)
+							k=6;
+						else if(k==7)
+							k=6;
+						else
+							k=k+1;
+					}
+					else if(param[6]==2)											//What if in Vpp mode?
+					{
+						if(k<4)
+							k=4;
+						else if(disp[4]==1)
+							k=4;
+						else if(k==7)
+							k=4;
+						else
+							k=k+1;
 					}
 				}
-				else
+				if(keynum==16)
 				{
-					k=1;
-					disp[k]=1;
-					display(5,15);
+					setupend=1;
 				}
 			}
-			if(keynum==14)
+			else
 			{
-				if(selectwp==0)
-				{
-					if(d2!=15)
-						d2=15;
-					if(keynum==110)
-					{
-						if(param[6]==1&&k>6)
-							k=k-1;
-						else if(param[6]==2&&k>4)											//What if in Vpp mode?
-							k=k-1;
-					}
-					if(keynum==120)
-					{
-						if(param[6]==1)
-						{
-							if(k<6)
-								k=6;
-							else if(disp[6]==5)
-								k=6;
-							else if(k==7)
-								k=6;
-							else
-								k=k+1;
-						}
-						else if(param[6]==2)											//What if in Vpp mode?
-						{
-							if(k<4)
-								k=4;
-							else if(disp[4]==1)
-								k=4;
-							else if(k==7)
-								k=4;
-							else
-								k=k+1;
-						}
-					}
-				}
-				else
-				{
-					selectwp=1;
-				}
+				setup=1;
 			}
 		}
 	}
