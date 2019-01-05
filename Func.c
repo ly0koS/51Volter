@@ -10,6 +10,7 @@ extern data uchar  param[9];
 extern data uint para1,para2;
 extern uchar disp[8];
 extern uchar d2;
+extern uchar k;
 
 void Calculate()
 {
@@ -45,6 +46,65 @@ void ParamProcess()
 	}
 	else
 		param[disp[1]*2]=disp[6]*10+disp[7];
+}
+
+void NumProcess(unsigned int keynum)
+{
+	uchar i;
+	if(k>=4)
+	{
+		if(param[6]==2&d2==15)																//Square Wave-Frequence Mode
+		{
+			if(k==4)
+			{
+				if(keynum==1)																			//Max=1000Hz
+				{
+					disp[k]=keynum;
+					for(i=5;i<8;i++)
+					{
+						disp[i]=0;
+					}
+				}
+				else if(keynum==0)
+					disp[k]=keynum;
+			}
+			else
+			{
+				if(disp[4]==0)
+				{
+					disp[4]=16;																				//disp[4] off
+					disp[k]=keynum;
+				}
+			}
+		}
+		else if(k==6)
+		{
+			if(param[6]==2&d2==10)
+			{
+				if(keynum>=2&&keynum<=7)
+					disp[k]=keynum;
+			}
+			else
+			{
+				if(keynum>=1&&keynum<5)															//Sin Wave-Frequence Mode
+					disp[k]=keynum;
+				else if(keynum==5)																	//Max=50Hz
+				{
+					disp[k]=keynum;
+					disp[7]=0;
+				}
+			}
+		}
+		else																										//maybe else if?
+		{
+			if(param[6]==1&d2==10&&disp[6]==5)										//Max=50Hz
+			{
+				disp[7]=0;
+			}
+			else
+				disp[k]=keynum;
+		}
+	}
 }
 
 void read24c02(void)

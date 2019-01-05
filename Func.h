@@ -8,5 +8,5 @@ void write24c02(void);
 void read24c02(void);
 int keyscan();
 void ParamProcess();
-void NumProcess();
+void NumProcess(unsigned int keynum);
 #endif

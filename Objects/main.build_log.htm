@@ -26,10 +26,10 @@ Rebuild target 'Target 1'
 compiling DISP.c...
 compiling main.c...
 main.c(54): warning C275: expression with possibly no effect
-main.c(137): warning C294: unreachable code
+main.c(140): warning C294: unreachable code
 compiling I2C.c...
 compiling Func.c...
-Func.c(96): warning C280: 't': unreferenced local variable
+Func.c(156): warning C280: 't': unreferenced local variable
 assembling STARTUP.A51...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
@@ -73,11 +73,23 @@ linking...
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0D3FH
-Program Size: data=67.5 xdata=0 code=1823
+    ADDRESS: 0E50H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  D2
+    MODULE:  .\Objects\Func.obj (FUNC)
+    ADDRESS: 097AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  D2
+    MODULE:  .\Objects\Func.obj (FUNC)
+    ADDRESS: 09DFH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  D2
+    MODULE:  .\Objects\Func.obj (FUNC)
+    ADDRESS: 0A33H
+Program Size: data=67.5 xdata=0 code=2096
 creating hex file from ".\Objects\main"...
-".\Objects\main" - 0 Error(s), 15 Warning(s).
-Build Time Elapsed:  00:00:00
+".\Objects\main" - 0 Error(s), 18 Warning(s).
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

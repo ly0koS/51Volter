@@ -121,12 +121,15 @@ int main()
 							k=k+1;
 					}
 				}
+				if(keynum>=0&&keynum<=8)
+				{
+					NumProcess(keynum);
+				}
 				if(keynum==16)
 				{
 					setupend=1;
 					ParamProcess();
 				}
-				
 			}
 			else
 			{
