@@ -100,5 +100,12 @@ int keyscan()
 			}
 		}
   }
+	switch(temp)
+	{
+		case(8):temp=110;break;
+		case(9):temp=8;break;
+		case(10):temp=9;break;
+		case(11):temp=120;break;
+	}
 	return temp;
 }
