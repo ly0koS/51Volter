@@ -201,7 +201,7 @@ void output(void) interrupt 3
 			SendByte(0x00); 					
 			cAck( );							
 			if(erflags==1) goto sen;
-			SendByte(0xa1);
+			SendByte(0x91);
 			cAck();	
 			if(erflags==1) goto sen;		
 		SendByte(so);
