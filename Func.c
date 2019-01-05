@@ -28,7 +28,7 @@ void Calculate()
 		g1=10^4/freq*param[5];
 		g2=10^4/freq*(100-param[5]);
 		para1=65536-g1;
-		para2=65546-g2;
+		para2=65536-g2;
 	}
 }
 
@@ -156,7 +156,7 @@ void write24c02(void)
 
 int keyscan()
 {
-	uchar t,temp;
+	uchar temp;
 	key=0xf0;           
   if(key!=0xf0)
   {

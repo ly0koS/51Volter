@@ -17,7 +17,7 @@ bit selectwp;
 bit rise;
 bit setupend;
 
-data uchar  param[9]={0x55,50,20,0,50,50,1};
+data uchar  param[9]={0x55,50,20,0,50,50,2};
 data uchar  p;
 data uchar  hide;
 data uchar 	k;
@@ -209,6 +209,7 @@ void output(void) interrupt 3
 	}
 	else if(param[6]==2)
 	{
+		Calculate();
 		recout=~recout;
 		if(recout)  
 		{

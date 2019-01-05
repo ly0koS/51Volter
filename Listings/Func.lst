@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:04:37 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:18:05 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -38,7 +38,7 @@ line level    source
   28   2          g1=10^4/freq*param[5];
   29   2          g2=10^4/freq*(100-param[5]);
   30   2          para1=65536-g1;
-  31   2          para2=65546-g2;
+  31   2          para2=65536-g2;
   32   2        }
   33   1      }
   34          
@@ -62,7 +62,7 @@ line level    source
   52          {
   53   1        uchar i;
   54   1        if(k>=4)
-C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:04:37 PAGE 2   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:18:05 PAGE 2   
 
   55   1        {
   56   2          if(param[6]==2&d2==15)                                //Square Wave-Frequence Mode
@@ -126,7 +126,7 @@ line level    source
  114   1          Start();
  115   1          SendByte(0xa0);         
  116   1          cAck( );              
-C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:04:37 PAGE 3   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:18:05 PAGE 3   
 
  117   1          if(erflags==1) goto sen;      
  118   1          SendByte(0x00);           
@@ -170,7 +170,7 @@ line level    source
  156          
  157          int keyscan()
  158          {
- 159   1        uchar t,temp;
+ 159   1        uchar temp;
  160   1        key=0xf0;           
  161   1        if(key!=0xf0)
  162   1        {
@@ -190,7 +190,7 @@ line level    source
  176   3            {
  177   4              case(0x0e):temp=temp;break;
  178   4              case(0x0d):temp=temp+4;break;
-C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:04:37 PAGE 4   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 01:18:05 PAGE 4   
 
  179   4              case(0x0b):temp=temp+8;break;
  180   4              case(0x07):temp=temp+12;break;
@@ -206,18 +206,17 @@ line level    source
  190   2        }
  191   1        return temp;
  192   1      }
-*** WARNING C280 IN LINE 159 OF Func.c: 't': unreferenced local variable
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    752    ----
+   CODE SIZE        =    751    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       5
+   DATA SIZE        =   ----       4
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
