@@ -92,22 +92,52 @@ int main()
 				{
 					if(param[6]==1&&k>6)
 					{
-						k--;
+						k=k-1;
 					}
 					else if(param[6]==2&&k>4)											//What if in Vpp mode?
 					{
-						k--;
+						k=k-1;
 					}
 				}
 				if(keynum==120)
 				{
-					if(param[6]==1&&k<6)
+					if(param[6]==1)
 					{
-						k++;
+						if(k<6)
+						{
+							k=6;
+						}
+						else if(disp[6]==5)
+						{
+							k=6;
+						}
+						else if(k==7)
+						{
+							k=6;
+						}
+						else
+						{
+							k=k+1;
+						}
 					}
-					else if(param[6]==2&&k<4)											//What if in Vpp mode?
+					else if(param[6]==2)											//What if in Vpp mode?
 					{
-						k++;
+						if(k<4)
+						{
+							k=4;
+						}
+						else if(disp[4]==1)
+						{
+							k=4;
+						}
+						else if(k==7)
+						{
+							k=4;
+						}
+						else
+						{
+							k=k+1;
+						}
 					}
 				}
 			}

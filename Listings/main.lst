@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:07:46 PAGE 1   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:16:56 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   4              if(setupend==1)
   53   4              {
   54   5                write24c02;
-C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:07:46 PAGE 2   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:16:56 PAGE 2   
 
 *** WARNING C275 IN LINE 54 OF main.c: expression with possibly no effect
   55   5                Calculate();
@@ -105,105 +105,135 @@ line level    source
   92   4              {
   93   5                if(param[6]==1&&k>6)
   94   5                {
-  95   6                  k--;
+  95   6                  k=k-1;
   96   6                }
   97   5                else if(param[6]==2&&k>4)                     //What if in Vpp mode?
   98   5                {
-  99   6                  k--;
+  99   6                  k=k-1;
  100   6                }
  101   5              }
  102   4              if(keynum==120)
  103   4              {
- 104   5                if(param[6]==1&&k<6)
+ 104   5                if(param[6]==1)
  105   5                {
- 106   6                  k++;
- 107   6                }
- 108   5                else if(param[6]==2&&k<4)                     //What if in Vpp mode?
- 109   5                {
- 110   6                  k++;
- 111   6                }
- 112   5              }
- 113   4            }
- 114   3            else
- 115   3            {
-C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:07:46 PAGE 3   
+ 106   6                  if(k<6)
+ 107   6                  {
+ 108   7                    k=6;
+ 109   7                  }
+ 110   6                  else if(disp[6]==5)
+ 111   6                  {
+ 112   7                    k=6;
+ 113   7                  }
+ 114   6                  else if(k==7)
+ 115   6                  {
+C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:16:56 PAGE 3   
 
- 116   4              selectwp=1;
- 117   4            }
- 118   3          }
- 119   2        }
- 120   1        return 0;
- 121   1      }
- 122          
- 123          
- 124          void output(void) interrupt 3
- 125          {
- 126   1        
- 127   1        TR1=0;
- 128   1        if(param[6]==1)
- 129   1        {
- 130   2          TH1=para1/256;
- 131   2          TL1=para1%256;
- 132   2          if(rise)
- 133   2          {
- 134   3            if(da<240)
- 135   3            {
- 136   4              da=da+16;
- 137   4            }
- 138   3            else if(da==240)
- 139   3            {
- 140   4              da=255;
- 141   4              rise=0;
- 142   4            }
- 143   3          }
- 144   2          else
- 145   2          {
- 146   3            if(da>16)
- 147   3            {
- 148   4              da=da-16;
- 149   4            }
- 150   3            else
- 151   3            {
- 152   4              da=0;
- 153   4              rise=1;
- 154   4            }
- 155   3          }
- 156   2          so=para2*da/50;
- 157   2          /*Add I2C DAC Code*/
- 158   2          sen:  erflags=0;              
- 159   2            Start( );               
- 160   2            SendByte(0x90);         
- 161   2            cAck( );              
- 162   2            if(erflags==1) goto sen;      
- 163   2            SendByte(0x00);           
- 164   2            cAck( );              
- 165   2            if(erflags==1) goto sen;  
- 166   2          SendByte(so);
- 167   2          cAck();
- 168   2        }
- 169   1        else if(param[6]==2)
- 170   1        {
- 171   2          recout=~recout;
- 172   2          if(recout)  
- 173   2          {
- 174   3            TH1=para1/256;
- 175   3            TL1=para1%256; 
- 176   3          }
- 177   2          else     
-C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:07:46 PAGE 4   
+ 116   7                    k=6;
+ 117   7                  }
+ 118   6                  else
+ 119   6                  {
+ 120   7                    k=k+1;
+ 121   7                  }
+ 122   6                }
+ 123   5                else if(param[6]==2)                      //What if in Vpp mode?
+ 124   5                {
+ 125   6                  if(k<4)
+ 126   6                  {
+ 127   7                    k=4;
+ 128   7                  }
+ 129   6                  else if(disp[4]==1)
+ 130   6                  {
+ 131   7                    k=4;
+ 132   7                  }
+ 133   6                  else if(k==7)
+ 134   6                  {
+ 135   7                    k=4;
+ 136   7                  }
+ 137   6                  else
+ 138   6                  {
+ 139   7                    k=k+1;
+ 140   7                  }
+ 141   6                }
+ 142   5              }
+ 143   4            }
+ 144   3            else
+ 145   3            {
+ 146   4              selectwp=1;
+ 147   4            }
+ 148   3          }
+ 149   2        }
+ 150   1        return 0;
+ 151   1      }
+ 152          
+ 153          
+ 154          void output(void) interrupt 3
+ 155          {
+ 156   1        
+ 157   1        TR1=0;
+ 158   1        if(param[6]==1)
+ 159   1        {
+ 160   2          TH1=para1/256;
+ 161   2          TL1=para1%256;
+ 162   2          if(rise)
+ 163   2          {
+ 164   3            if(da<240)
+ 165   3            {
+ 166   4              da=da+16;
+ 167   4            }
+ 168   3            else if(da==240)
+ 169   3            {
+ 170   4              da=255;
+ 171   4              rise=0;
+ 172   4            }
+ 173   3          }
+ 174   2          else
+ 175   2          {
+ 176   3            if(da>16)
+ 177   3            {
+C51 COMPILER V9.59.0.0   MAIN                                                              01/05/2019 10:16:56 PAGE 4   
 
- 178   2          {
- 179   3            TH1=para2/256;
- 180   3            TL1=para2%256; 
- 181   3          }
- 182   2        }
- 183   1        TR1=1;
- 184   1      }
-*** WARNING C294 IN LINE 120 OF main.c: unreachable code
+ 178   4              da=da-16;
+ 179   4            }
+ 180   3            else
+ 181   3            {
+ 182   4              da=0;
+ 183   4              rise=1;
+ 184   4            }
+ 185   3          }
+ 186   2          so=para2*da/50;
+ 187   2          /*Add I2C DAC Code*/
+ 188   2          sen:  erflags=0;              
+ 189   2            Start( );               
+ 190   2            SendByte(0x90);         
+ 191   2            cAck( );              
+ 192   2            if(erflags==1) goto sen;      
+ 193   2            SendByte(0x00);           
+ 194   2            cAck( );              
+ 195   2            if(erflags==1) goto sen;  
+ 196   2          SendByte(so);
+ 197   2          cAck();
+ 198   2        }
+ 199   1        else if(param[6]==2)
+ 200   1        {
+ 201   2          recout=~recout;
+ 202   2          if(recout)  
+ 203   2          {
+ 204   3            TH1=para1/256;
+ 205   3            TL1=para1%256; 
+ 206   3          }
+ 207   2          else     
+ 208   2          {
+ 209   3            TH1=para2/256;
+ 210   3            TL1=para2%256; 
+ 211   3          }
+ 212   2        }
+ 213   1        TR1=1;
+ 214   1      }
+*** WARNING C294 IN LINE 150 OF main.c: unreachable code
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    487    ----
+   CODE SIZE        =    532    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
