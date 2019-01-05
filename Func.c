@@ -100,12 +100,12 @@ int keyscan()
 			}
 		}
   }
-	switch(temp)
+	switch(temp)														//To fit keymap
 	{
-		case(8):temp=110;break;
-		case(9):temp=8;break;
-		case(10):temp=9;break;
-		case(11):temp=120;break;
+		case(8):temp=110;break;								//go left
+		case(9):temp=8;break;									//fit keymap
+		case(10):temp=9;break;								//fit keymap
+		case(11):temp=120;break;							//go right
 	}
 	return temp;
 }
