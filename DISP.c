@@ -27,36 +27,48 @@ void display(uchar d1,d2)
 	disp[1]=param[6];
 	if(d2==0x0f)
 	{
+		disp[2]=15;
 		switch(param[6])
 		{
 			case(1):
 			{
+				disp[3]=16;
+				disp[4]=16; 
+				disp[5]=16;  
 				disp[7]=param[1]%10;
 				disp[6]=param[1]/10;
 				break;
 			}
 			case(2):
 			{
+				disp[3]=16;
 				disp[4]=param[3];
-				disp[3]=param[4]/100;
-				disp[2]=(param[4]/10)%10;
-				disp[1]=param[4]%10;
+				disp[5]=param[4]/100;
+				disp[6]=(param[4]/10)%10;
+				disp[7]=param[4]%10;
 				break;
 			}
 		}
 	}
 	else if(d2==0x0a)
 	{
+		disp[2]=10;
 		switch(param[6])
 		{
 			case(1):
 			{
+				disp[3]=16;
+				disp[4]=16; 
+				disp[5]=16;  
 				disp[7]=param[2]%10;
 				disp[6]=param[2]/10;
 				break;
 			}
 			case(2):
 			{
+				disp[3]=16;
+				disp[4]=16; 
+				disp[5]=16; 
 				disp[7]=param[5]%10;
 				disp[6]=param[5]/10;
 				break;

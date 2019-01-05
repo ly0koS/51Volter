@@ -112,7 +112,7 @@ void read24c02(void)
 	uchar temp,i;
 	sen:	erflags=0;
 		Start();
-		SendByte(0x65); 				
+		SendByte(0xa0); 				
 		cAck( );							
 		if(erflags==1) goto sen;			
 		SendByte(0x00); 					
@@ -138,17 +138,20 @@ void write24c02(void)
 	uchar i;
 	sen:	erflags=0;						  
 		Start( ); 							
-		SendByte(0x65); 				
+		SendByte(0xa0); 				
 		cAck( );							
 		if(erflags==1) goto sen;			
 		SendByte(0x00); 					
 		cAck( );							
-		if(erflags==1) goto sen;	
+		if(erflags==1) goto sen;
+		SendByte(0xa1);
+		cAck();
 	for(i=0;i<8;i++)
 	{
 		SendByte(param[i]); 						
 		cAck( );
 	}
+	Stop();
 }
 
 int keyscan()

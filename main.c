@@ -17,7 +17,7 @@ bit selectwp;
 bit rise;
 bit setupend;
 
-data uchar  param[9];
+data uchar  param[9]={0x55,50,50,3,232,50,2};
 data uchar  p;
 data uchar  hide;
 data uchar 	k;
