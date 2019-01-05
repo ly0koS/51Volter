@@ -94,7 +94,6 @@ void scan() interrupt 1
 	TR0=0;
 	TH0=(65536-500)/256;
 	TL0=(65536-500)%256;
-	timing=timing+1;
 	hide=0xff;
 	if(timing==60)
 	{
@@ -110,8 +109,7 @@ void scan() interrupt 1
 	LE1=1;
 	if(setup&&(k==i))
 	{
-		P0=table[t];
-		P0=P0&hide;
+		P0=table[t]&hide;
 	}
 	else
 	{
@@ -127,5 +125,6 @@ void scan() interrupt 1
 	{
 		i=0;
 	}
+	timing=timing+1;
 	TR0=1;
 }

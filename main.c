@@ -47,101 +47,120 @@ int main()
 	while(1)
 	{
 		keynum=keyscan();
-		if(keynum==12)
+		if(setup==1)											//Setup Mode
 		{
-			if(setup==1)
+			if(keynum==12)								//setting
 			{
+				setup=0;
 				if(setupend==1)
 				{
-					write24c02;
+					setupend=0;
+					write24c02();
 					Calculate();
-					display(0,15);
-					k=99;														//no blink
+				}
+				disp[1]=param[6];
+				display(0,15);
+			}
+			if(keynum==13)								//select wave
+			{
+				if(selectwp==1)
+				{
+					switch(param[6])
+					{
+						case(1):param[6]=2;break;
+						case(2):param[6]=1;break;
+					}
+					display(5,15);
+				}
+				else
+				{
+					selectwp=1;
+					k=1;
+					disp[1]=1;
+				}
+				display(5,15);
+			}
+			if(keynum==14)								//select param
+			{
+				k=2;
+				if(selectwp==0)
+				{
+					if(disp[2]!=15)
+						display(5,15);
+					else
+						display(5,10);
+				}
+				else
+					selectwp=0;
+			}
+			if(keynum==110)								//go left
+			{
+				if(selectwp==0)
+				{
+					if(disp[2]==15&&disp[1]==2)
+					{
+						if(k>4)
+							k--;
+					}
+					else if(k>6)
+						k--;
 				}
 			}
-			else
+			if(keynum==120)								//go right
+			{
+				if(selectwp==0)
+				{
+					if(disp[2]==15&&disp[1]==2)
+					{
+						if(k<=4)
+							k=4;
+						else if(disp[4]==1)
+							k=4;
+					}
+					else if(k<=6)
+						k=6;
+					else if(param[6]==1&&disp[2]==10&&disp[6]==5)
+						k=6;
+					else
+						k++;
+				}
+			}
+			if(keynum==15)								//confim
+			{
+				setupend=1;
+				ParamProcess();
+			}
+			else if(keynum<=9&&keynum>=0)
+			{
+				NumProcess(keynum);
+			}
+		}
+		else														//Not in Setup Mode
+		{
+			if(keynum==12)
 			{
 				setup=1;
 				disp[1]=param[6];
 				display(5,15);
-				selectwp=1;
+				selectwp=1; 
 				k=1;
 			}
-		}
-		if(keynum==13)
-		{
-			if(selectwp==1)
+			if(keynum==13)
 			{
-				switch(param[6])
-				{
-					case(1):param[6]=2;break;
-					case(2):param[6]=1;break;
-				}
+			  disp[1]=disp[1]+1; 
+			  if(disp[1]>=3) 
+					disp[1]=1;
+			  display(0,15);
 			}
-			else
+			if(keynum==14)
+			{ 						
+			  if(disp[2]!=15) 
+					display(0,15);
+			  else    
+					display(0,10);
+			}
+			if(keynum==15)	
 			{
-				k=1;
-				disp[k]=1;
-				display(5,15);
-			}
-		}
-		if(keynum==14)
-		{
-			if(setup==1)
-			{
-				if(d2!=15)
-					d2=15;
-				else
-					d2=10;
-				if(keynum==110)
-				{
-					if(param[6]==1&&k>6)
-						k=k-1;
-					else if(param[6]==2&&k>4)											//What if in Vpp mode?
-						k=k-1;
-				}
-				if(keynum==120)
-				{
-					if(param[6]==1)
-					{
-						if(k<6)
-							k=6;
-						else if(disp[6]==5)
-							k=6;
-						else if(k==7)
-							k=6;
-						else
-							k=k+1;
-					}
-					else if(param[6]==2)													//What if in Vpp mode?
-					{
-						if(k<4)
-							k=4;
-						else if(disp[4]==1)
-							k=4;
-						else if(k==7)
-							k=4;
-						else
-							k=k+1;
-					}
-				}
-				if(keynum>=0&&keynum<=8)
-				{
-					NumProcess(keynum);
-				}
-				if(keynum==16)
-				{
-					setupend=1;
-					ParamProcess();
-				}
-			}
-			else
-			{
-				setup=1;
-			}
-		}
-		if(keynum==15)	
-		{
 			if(disp[1]!=param[6])
 			  {
 			   	if(param[6]==1)	
@@ -153,6 +172,7 @@ int main()
 			  	Calculate();
 					EA=1;
 			  }
+			}
 		}
 	}
 	return 0;

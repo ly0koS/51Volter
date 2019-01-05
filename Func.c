@@ -25,8 +25,8 @@ void Calculate()
 	if(param[6]==2)
 	{
 		freq=param[3]*1000+param[4];
-		g1=10^4/freq*param[5];
-		g2=10^4/freq*(100-param[5]);
+		g1=10000/freq*param[5];
+		g2=10000/freq*(100-param[5]);
 		para1=65536-g1;
 		para2=65536-g2;
 	}
