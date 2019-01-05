@@ -15,9 +15,10 @@ bit setupend;
 data uchar  param[9];
 data uchar  p;
 data uchar  hide;
-data uint para1,para2;
-data uchar da;
-data uchar so;
+data uchar 	k;
+data uint 	para1,para2;
+data uchar 	da;
+data uchar 	so;
 
 extern uchar disp[8];
 
@@ -68,8 +69,8 @@ int main()
 			}
 			else
 			{
-				/*k=1 ??? */
-				disp[1]=1;
+				k=1;
+				disp[k]=1;
 				display(5,15);
 			}
 		}

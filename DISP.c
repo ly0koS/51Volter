@@ -15,8 +15,11 @@ uchar table[17]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x3
 uchar i=0;
 uchar key=99;
 uchar temp;
+unsigned int timing=0;
 
 extern data uchar  param[9];
+extern data uchar k;
+extern data uchar hide;
 
 void display(uchar d1,d2)
 {
@@ -75,13 +78,30 @@ void delay(uchar ti)
 void scan() interrupt 1
 {
 	uchar j=0xfe;
-	uchar k;
+	uchar t;
+	TR0=0;
 	TH0=0xfe;
 	TL0=0x0c;
-	k=disp[i];
+	timing=timing+1;
+	if(timing==600)
+	{
+		hide=~hide;
+	}
+	else if(timing==0)
+	{
+		hide=0xff;
+	}
+	if(k!=0xff&&i==k)
+	{
+		t=disp[i]&hide;
+	}	
+	else
+	{
+		t=disp[i];
+	}
 	OE=1;
 	LE1=1;
-	P0=table[k];
+	P0=table[t];
 	LE1=0;
 	LE2=1;
 	P0=sled_bit[i];
@@ -92,4 +112,5 @@ void scan() interrupt 1
 	{
 		i=0;
 	}
+	TR0=1;
 }
