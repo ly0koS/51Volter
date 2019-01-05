@@ -36,8 +36,8 @@ int main()
 	ET1=1;
 	PT0=1;
 	PT1=0;
-	TH0=0xfe;
-	TL0=0x0c;
+	TH0=(65536-500)/256;
+	TL0=(65536-500)%256;
 	TR0=1;
 	TR1=1;
 	read24c02();
@@ -55,13 +55,17 @@ int main()
 					Calculate();
 					setupend=0;
 					display(0,15);
+					k=99;														//no blink
 				}
 				setup=0;
 			}
 			else
 			{
 				setup=1;
+				disp[1]=param[6];
 				display(5,15);
+				selectwp=1;
+				k=1;
 			}
 		}
 		if(keynum==13)

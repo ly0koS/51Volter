@@ -20,11 +20,11 @@ unsigned int timing=0;
 extern data uchar  param[9];
 extern data uchar k;
 extern data uchar hide;
+extern data setup;
 
 void display(uchar d1,d2)
 {
 	disp[0]=d1;
-	disp[1]=param[6];
 	if(d2==0x0f)
 	{
 		disp[2]=15;
@@ -92,9 +92,10 @@ void scan() interrupt 1
 	uchar j=0xfe;
 	uchar t;
 	TR0=0;
-	TH0=0xfe;
-	TL0=0x0c;
+	TH0=(65536-500)/256;
+	TL0=(65536-500)%256;
 	timing=timing+1;
+	hide=0xff;
 	if(timing==60)
 	{
 		hide=~hide;
@@ -104,17 +105,18 @@ void scan() interrupt 1
 	{
 		hide=0xff;
 	}
-	if(k!=0xff&&i==k)
-	{
-		t=disp[i]&hide;
-	}	
-	else
-	{
-		t=disp[i];
-	}
+	t=disp[i];
 	OE=1;
 	LE1=1;
-	P0=table[t];
+	if(setup&&(k==i))
+	{
+		P0=table[t];
+		P0=P0&hide;
+	}
+	else
+	{
+		P0=table[t];
+	}
 	LE1=0;
 	LE2=1;
 	P0=sled_bit[i];

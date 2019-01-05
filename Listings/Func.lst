@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 23:38:35 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 00:11:02 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -62,7 +62,7 @@ line level    source
   52          {
   53   1        uchar i;
   54   1        if(k>=4)
-C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 23:38:35 PAGE 2   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 00:11:02 PAGE 2   
 
   55   1        {
   56   2          if(param[6]==2&d2==15)                                //Square Wave-Frequence Mode
@@ -126,7 +126,7 @@ line level    source
  114   1          Start();
  115   1          SendByte(0xa0);         
  116   1          cAck( );              
-C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 23:38:35 PAGE 3   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 00:11:02 PAGE 3   
 
  117   1          if(erflags==1) goto sen;      
  118   1          SendByte(0x00);           
@@ -190,7 +190,7 @@ line level    source
  176   3            {
  177   4              case(0x0e):temp=temp;break;
  178   4              case(0x0d):temp=temp+4;break;
-C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 23:38:35 PAGE 4   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/06/2019 00:11:02 PAGE 4   
 
  179   4              case(0x0b):temp=temp+8;break;
  180   4              case(0x07):temp=temp+12;break;
