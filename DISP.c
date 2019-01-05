@@ -20,7 +20,7 @@ unsigned int timing=0;
 extern data uchar  param[9];
 extern data uchar k;
 extern data uchar hide;
-extern data setup;
+extern bit setup;
 
 void display(uchar d1,d2)
 {

@@ -25,37 +25,22 @@ Project File Date:  01/05/2019
 Rebuild target 'Target 1'
 compiling DISP.c...
 compiling main.c...
-main.c(54): warning C275: expression with possibly no effect
-main.c(144): warning C294: unreachable code
+main.c(56): warning C275: expression with possibly no effect
+main.c(158): warning C294: unreachable code
 compiling I2C.c...
 compiling Func.c...
 Func.c(159): warning C280: 't': unreferenced local variable
 assembling STARTUP.A51...
 linking...
-*** ERROR L103: EXTERNAL ATTRIBUT DO NOT MATCH PUBLIC
-    SYMBOL:  SETUP
-    MODULE:  .\Objects\main.obj (MAIN)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?NOACK?I2C
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
     SEGMENT: ?PR?_SENDBYTE?I2C
     CALLER1: ?PR?OUTPUT?MAIN
     CALLER2: ?C_C51STARTUP
-*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
-    SYMBOL:  SETUP
-    MODULE:  .\Objects\DISP.obj (DISP)
-    ADDRESS: 0C22H
-*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
-    SYMBOL:  SETUP
-    MODULE:  .\Objects\DISP.obj (DISP)
-    ADDRESS: 0C24H
 *** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
     SYMBOL:  D2
     MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 089DH
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\main.obj (MAIN)
@@ -67,37 +52,42 @@ linking...
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 08A8H
+    ADDRESS: 08A9H
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 08ADH
+    ADDRESS: 08ACH
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 08B0H
+    ADDRESS: 08B1H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  D2
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 08B4H
 *** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
     SYMBOL:  D2
     MODULE:  .\Objects\Func.obj (FUNC)
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0E8CH
+    ADDRESS: 0ECAH
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0988H
+    ADDRESS: 09BBH
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 09EDH
+    ADDRESS: 0A20H
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  D2
     MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0A41H
-Program Size: data=67.5 xdata=0 code=2177
-Target not created.
-Build Time Elapsed:  00:00:01
+    ADDRESS: 0A74H
+Program Size: data=67.5 xdata=0 code=2239
+creating hex file from ".\Objects\main"...
+".\Objects\main" - 0 Error(s), 17 Warning(s).
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

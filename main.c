@@ -17,7 +17,7 @@ bit selectwp;
 bit rise;
 bit setupend;
 
-data uchar  param[9]={0x55,50,50,3,232,50,2};
+data uchar  param[9]={0x55,50,20,0,50,50,1};
 data uchar  p;
 data uchar  hide;
 data uchar 	k;
@@ -42,6 +42,8 @@ int main()
 	TR1=1;
 	read24c02();
 	display(0,15);
+	disp[1]=param[6];
+	setup=0;
 	while(1)
 	{
 		keynum=keyscan();
@@ -53,11 +55,9 @@ int main()
 				{
 					write24c02;
 					Calculate();
-					setupend=0;
 					display(0,15);
 					k=99;														//no blink
 				}
-				setup=0;
 			}
 			else
 			{
@@ -140,6 +140,20 @@ int main()
 				setup=1;
 			}
 		}
+		if(keynum==15)	
+		{
+			if(disp[1]!=param[6])
+			  {
+			   	if(param[6]==1)	
+						Stop();
+					param[6]=disp[1];
+					EA=0;
+					write24c02();
+					display(0,15);
+			  	Calculate();
+					EA=1;
+			  }
+		}
 	}
 	return 0;
 }
@@ -186,7 +200,10 @@ void output(void) interrupt 3
 			if(erflags==1) goto sen;			
 			SendByte(0x00); 					
 			cAck( );							
-			if(erflags==1) goto sen;	
+			if(erflags==1) goto sen;
+			SendByte(0xa1);
+			cAck();	
+			if(erflags==1) goto sen;		
 		SendByte(so);
 		cAck();
 	}
