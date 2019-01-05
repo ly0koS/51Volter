@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 11:06:08 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 11:12:37 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -41,7 +41,7 @@ line level    source
   31   2        }
   32   1      }
   33          
-  34          void Process()
+  34          void ParamProcess()
   35          {
   36   1        uchar freq;
   37   1        if(param[6]==1)
@@ -62,7 +62,7 @@ line level    source
   52   1        uchar temp,i;
   53   1        sen:  erflags=0;
   54   1          Start();
-C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 11:06:08 PAGE 2   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 11:12:37 PAGE 2   
 
   55   1          SendByte(0x90);         
   56   1          cAck( );              
@@ -126,7 +126,7 @@ line level    source
  114   4              case(0x0e):temp=temp;break;
  115   4              case(0x0d):temp=temp+4;break;
  116   4              case(0x0b):temp=temp+8;break;
-C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 11:06:08 PAGE 3   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/05/2019 11:12:37 PAGE 3   
 
  117   4              case(0x07):temp=temp+12;break;
  118   4            }

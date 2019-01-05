@@ -124,7 +124,7 @@ int main()
 				if(keynum==16)
 				{
 					setupend=1;
-					Process();
+					ParamProcess();
 				}
 				
 			}

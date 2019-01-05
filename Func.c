@@ -31,7 +31,7 @@ void Calculate()
 	}
 }
 
-void Process()
+void ParamProcess()
 {
 	uchar freq;
 	if(param[6]==1)
