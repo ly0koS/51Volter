@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/05/2019  23:30:23  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    01/05/2019  23:34:34  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Objects\main (DISP)
             CODE    0F78H     0033H     UNIT         ?C_INITSEG
             CODE    0FABH     0033H     UNIT         ?PR?_SENDBYTE?I2C
             CODE    0FDEH     001EH     UNIT         ?PR?ACK?I2C
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 2
 
 
             CODE    0FFCH     0016H     UNIT         ?PR?_DELAY?DISP
@@ -119,7 +119,7 @@ SEGMENT                          DATA_GROUP
   +--> ?PR?WRITE24C02?FUNC
 
 ?PR?RCVBYTE?I2C                0046H    0002H
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 3
 
 
   +--> ?PR?DELAY4US?I2C
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   D:00C8H         PUBLIC        T2CON
   D:003EH         PUBLIC        i
   C:0B36H         PUBLIC        _display
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 4
 
 
   D:00D0H         PUBLIC        PSW
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:0BCDH         LINE#         74
   C:0BCDH         LINE#         75
   C:0BCDH         LINE#         76
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 5
 
 
   C:0BCDH         LINE#         77
@@ -299,7 +299,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:0DE6H         LINE#         126
   C:0DE6H         LINE#         127
   C:0DE8H         LINE#         128
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 6
 
 
   -------         ENDPROC       SCAN
@@ -358,12 +358,12 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:0810H         LINE#         41
   C:0812H         LINE#         42
   C:0814H         LINE#         43
-  C:0814H         LINE#         44
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 7
+  C:0817H         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 7
 
 
-  C:0814H         LINE#         45
-  C:0817H         LINE#         46
+  C:0820H         LINE#         45
+  C:0820H         LINE#         46
   C:0820H         LINE#         47
   C:0827H         LINE#         48
   C:082FH         LINE#         49
@@ -419,7 +419,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:08E6H         LINE#         102
   C:08E6H         LINE#         103
   C:08F3H         LINE#         104
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 8
 
 
   C:08F5H         LINE#         105
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:0AABH         LINE#         163
   C:0AADH         LINE#         165
   C:0AADH         LINE#         166
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 9
 
 
   C:0AB8H         LINE#         167
@@ -539,7 +539,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   B:00B0H.6       PUBLIC        scl
   C:0F43H         PUBLIC        RcvByte
   C:1044H         PUBLIC        NoAck
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 10
 
 
   D:00C8H         PUBLIC        T2CON
@@ -599,7 +599,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:1035H         LINE#         54
   C:1037H         LINE#         55
   C:1039H         LINE#         56
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 11
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 11
 
 
   C:103BH         LINE#         57
@@ -659,7 +659,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:105EH         LINE#         102
   C:105EH         LINE#         103
   C:1062H         LINE#         104
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 12
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 12
 
 
   -------         ENDPROC       DELAY4US
@@ -719,7 +719,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   D:0005H         SYMBOL        freq
   -------         ENDDO         
   C:0E5CH         LINE#         35
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 13
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 13
 
 
   C:0E5CH         LINE#         36
@@ -779,7 +779,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:0A1FH         LINE#         90
   C:0A21H         LINE#         91
   C:0A27H         LINE#         92
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 14
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 14
 
 
   C:0A27H         LINE#         93
@@ -839,7 +839,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   C:0F00H         LINE#         140
   C:0F03H         LINE#         141
   C:0F08H         LINE#         142
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 15
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 15
 
 
   C:0F0BH         LINE#         143
@@ -899,7 +899,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
   -------         ENDMOD        FUNC
 
   -------         MODULE        ?C_STARTUP
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 16
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 16
 
 
   C:0BCEH         SEGMENT       ?C_C51STARTUP
@@ -959,7 +959,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\main (DISP)
     SYMBOL:  D2
     MODULE:  .\Objects\main.obj (MAIN)
     ADDRESS: 088FH
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:30:23  PAGE 17
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  01/05/2019  23:34:34  PAGE 17
 
 
 

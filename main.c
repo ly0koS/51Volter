@@ -40,10 +40,10 @@ int main()
 	TL0=0x0c;
 	TR0=1;
 	TR1=1;
+	read24c02();
+	display(0,15);
 	while(1)
 	{
-		read24c02();
-		display(0,15);
 		keynum=keyscan();
 		if(keynum==12)
 		{
