@@ -8,7 +8,8 @@ sbit erflags=PSW^5;
 
 extern data uchar  param[9];
 extern data uint para1,para2;
-
+extern uchar disp[8];
+extern uchar d2;
 
 void Calculate()
 {
@@ -29,6 +30,23 @@ void Calculate()
 		para2=65546-g2;
 	}
 }
+
+void Process()
+{
+	uchar freq;
+	if(param[6]==1)
+	{
+		param[1]=disp[6]*10+disp[7];
+	}
+	else if(param[6]==2&&d2==15)
+	{
+		freq=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];
+		param[7]=freq/256,param[8]=freq%256;
+	}
+	else
+		param[disp[1]*2]=disp[6]*10+disp[7];
+}
+
 void read24c02(void)
 {
 	uchar temp,i;

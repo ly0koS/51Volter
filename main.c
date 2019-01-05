@@ -87,6 +87,8 @@ int main()
 			{
 				if(d2!=15)
 					d2=15;
+				else
+					d2=10;
 				if(keynum==110)
 				{
 					if(param[6]==1&&k>6)
@@ -107,7 +109,7 @@ int main()
 						else
 							k=k+1;
 					}
-					else if(param[6]==2)											//What if in Vpp mode?
+					else if(param[6]==2)													//What if in Vpp mode?
 					{
 						if(k<4)
 							k=4;
@@ -122,7 +124,9 @@ int main()
 				if(keynum==16)
 				{
 					setupend=1;
+					Process();
 				}
+				
 			}
 			else
 			{
