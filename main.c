@@ -21,6 +21,7 @@ data uchar 	da;
 data uchar 	so;
 
 extern uchar disp[8];
+extern d2;
 
 int main()
 {
@@ -72,6 +73,20 @@ int main()
 				k=1;
 				disp[k]=1;
 				display(5,15);
+			}
+		}
+		if(keynum==14)
+		{
+			if(selectwp==0)
+			{
+				if(d2!=15)
+				{
+					d2=15;
+				}
+			}
+			else
+			{
+				selectwp=1;
 			}
 		}
 	}
