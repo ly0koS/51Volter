@@ -112,7 +112,7 @@ void read24c02(void)
 	uchar temp,i;
 	sen:	erflags=0;
 		Start();
-		SendByte(0x90); 				
+		SendByte(0x65); 				
 		cAck( );							
 		if(erflags==1) goto sen;			
 		SendByte(0x00); 					
@@ -138,7 +138,7 @@ void write24c02(void)
 	uchar i;
 	sen:	erflags=0;						  
 		Start( ); 							
-		SendByte(0x90); 				
+		SendByte(0x65); 				
 		cAck( );							
 		if(erflags==1) goto sen;			
 		SendByte(0x00); 					
