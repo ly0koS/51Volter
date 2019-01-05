@@ -95,9 +95,10 @@ void scan() interrupt 1
 	TH0=0xfe;
 	TL0=0x0c;
 	timing=timing+1;
-	if(timing==600)
+	if(timing==60)
 	{
 		hide=~hide;
+		timing=0;
 	}
 	else if(timing==0)
 	{

@@ -54,9 +54,9 @@ int main()
 					write24c02;
 					Calculate();
 					setupend=0;
+					display(0,15);
 				}
 				setup=0;
-				display(0,15);
 			}
 			else
 			{
