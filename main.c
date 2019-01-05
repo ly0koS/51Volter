@@ -1,3 +1,8 @@
+/*
+	param[6]=1--->Sin
+	param[6]=2--->Square Wave
+*/
+
 #include "DISP.h"
 #include "I2C.h"
 #include "Func.h"
@@ -82,6 +87,28 @@ int main()
 				if(d2!=15)
 				{
 					d2=15;
+				}
+				if(keynum==110)
+				{
+					if(param[6]==1&&k>6)
+					{
+						k--;
+					}
+					else if(param[6]==2&&k>4)											//What if in Vpp mode?
+					{
+						k--;
+					}
+				}
+				if(keynum==120)
+				{
+					if(param[6]==1&&k<6)
+					{
+						k++;
+					}
+					else if(param[6]==2&&k<4)											//What if in Vpp mode?
+					{
+						k++;
+					}
 				}
 			}
 			else
