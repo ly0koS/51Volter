@@ -53,7 +53,7 @@ void ParamProcess()
 	if(disp[2]==15)
 	{
 		if(disp[1]==1)
-			param[disp[1]*2-1]=disp[6]*10+disp[7]; 
+			param[1]=disp[6]*10+disp[7]; 
 		else 	
 		{
 			freq=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];

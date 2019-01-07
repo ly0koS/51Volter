@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:00:40 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:07:42 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -62,10 +62,10 @@ line level    source
   52   1        uchar freq;
   53   1        if(disp[2]==15)
   54   1        {
-C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:00:40 PAGE 2   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:07:42 PAGE 2   
 
   55   2          if(disp[1]==1)
-  56   2            param[disp[1]*2-1]=disp[6]*10+disp[7]; 
+  56   2            param[1]=disp[6]*10+disp[7]; 
   57   2          else  
   58   2          {
   59   3            freq=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];
@@ -126,7 +126,7 @@ line level    source
  114   4              {
  115   5                disp[k]=keynum;
  116   5                disp[7]=0;
-C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:00:40 PAGE 3   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:07:42 PAGE 3   
 
  117   5              }
  118   4            }
@@ -190,7 +190,7 @@ line level    source
  176   1        for(i=0;i<8;i++)
  177   1        {
  178   2          SendByte(param[i]);             
-C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:00:40 PAGE 4   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/07/2019 22:07:42 PAGE 4   
 
  179   2          cAck( );
  180   2        }
@@ -236,7 +236,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    874    ----
+   CODE SIZE        =    868    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

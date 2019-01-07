@@ -24,7 +24,7 @@ data uint 	para1 _at_ 0x10;
 data uint 	para2 _at_ 0x11;
 data uchar 	da;
 data uchar 	so;
-data uchar	keynum _at_ 0x50;
+data uint	keynum _at_ 0x50;
 
 extern uchar disp[8];
 extern uchar d2;
