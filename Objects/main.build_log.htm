@@ -25,19 +25,21 @@ Project File Date:  01/07/2019
 Rebuild target 'Target 1'
 compiling DISP.c...
 compiling main.c...
-main.c(178): warning C294: unreachable code
+main.c(216): warning C294: unreachable code
 compiling Func.c...
 assembling STARTUP.A51...
 compiling IIC.c...
 linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYSCAN?FUNC
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
     SEGMENT: ?PR?_SENDBYTE?IIC
     CALLER1: ?PR?OUTPUT?MAIN
     CALLER2: ?C_C51STARTUP
-Program Size: data=67.5 xdata=0 code=2413
+Program Size: data=69.5 xdata=0 code=2549
 creating hex file from ".\Objects\main"...
-".\Objects\main" - 0 Error(s), 2 Warning(s).
-Build Time Elapsed:  00:00:02
+".\Objects\main" - 0 Error(s), 3 Warning(s).
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

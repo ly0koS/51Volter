@@ -2,7 +2,6 @@
 #define uchar unsigned char
 #define uint unsigned int
 
-#define key P2
 
 sbit erflags=PSW^5;
 
@@ -158,11 +157,11 @@ void write24c02(void)
 	Stop();
 }
 
-int keyscan()
+uchar keyscan()
 {
-	uchar a,b,temp;
-	key=0xf0;           
-	delay(5);
+	uchar a,b,temp; 
+	P2=0xf0;
+	delay(5);	
 	a=P2;
 	P2=0x0f;
 	delay(5);
@@ -193,3 +192,4 @@ int keyscan()
   }
 	return temp;
 }
+
