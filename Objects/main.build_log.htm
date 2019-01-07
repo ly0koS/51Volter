@@ -5,10 +5,10 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¦ÌVision V5.25.3.0
 Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Jeremy Shen, lyoko, LIC=----
+License Information: Jeremy Shen, lyoko, LIC=UJ52Z-JV8C0-F4SS0-BVVYT-D5AI3-RATMR
  
 Tool Versions:
-Toolchain:       PK51 Prof. Develpers Kit  Version: 9.59.0.0
+Toolchain:       PK51 Prof. Developers Kit  Version: 9.59.0.0
 Toolchain Path:  C:\Keil_v5\C51\BIN
 C Compiler:      C51.exe V9.59.0.0
 Assembler:       A51.exe V8.2.7.0
@@ -18,78 +18,31 @@ Hex Converter:   OH51.exe V2.7.0.0
 CPU DLL:         S8051.DLL V3.122.0.0
 Dialog DLL:      DP51.DLL V2.66.0.0 
 <h2>Project:</h2>
-C:\Users\shenyuyang\OneDrive\Documents\Study\8051\homework\Project_Volter\Project_Volter.uvproj
-Project File Date:  01/03/2019
+D:\8051\Volter\Project_Volter.uvproj
+Project File Date:  01/07/2019
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling DISP.c...
 compiling main.c...
-main.c(54): warning C275: expression with possibly no effect
-main.c(140): warning C294: unreachable code
-compiling I2C.c...
+main.c(225): warning C294: unreachable code
 compiling Func.c...
-Func.c(156): warning C280: 't': unreferenced local variable
 assembling STARTUP.A51...
+compiling IIC.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?STOP?I2C
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?NOACK?I2C
+    SEGMENT: ?PR?KEYSCAN?FUNC
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_SENDBYTE?I2C
+    SEGMENT: ?PR?_SENDBYTE?IIC
     CALLER1: ?PR?OUTPUT?MAIN
     CALLER2: ?C_C51STARTUP
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 088FH
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0893H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0897H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 089AH
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 089FH
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 08A2H
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0E50H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 097AH
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 09DFH
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0A33H
-Program Size: data=67.5 xdata=0 code=2096
+*** WARNING L4: DATA SPACE MEMORY OVERLAP
+    FROM:    0011H
+    TO:      0011H
+Program Size: data=72.5 xdata=0 code=2699
 creating hex file from ".\Objects\main"...
-".\Objects\main" - 0 Error(s), 18 Warning(s).
-Build Time Elapsed:  00:00:01
+".\Objects\main" - 0 Error(s), 4 Warning(s).
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

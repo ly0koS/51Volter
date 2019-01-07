@@ -4,5 +4,5 @@
 #include <intrins.h>
 #define uchar unsigned char
 void delay(uchar ti);
-void display(uchar d1,d2);
+void display(uchar d1,dt);
 #endif

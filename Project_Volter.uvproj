@@ -440,11 +440,6 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>I2C.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\I2C.c</FilePath>
-            </File>
-            <File>
               <FileName>Func.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Func.c</FilePath>
@@ -463,6 +458,11 @@
               <FileName>Func.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Func.h</FilePath>
+            </File>
+            <File>
+              <FileName>IIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\IIC.c</FilePath>
             </File>
           </Files>
         </Group>
