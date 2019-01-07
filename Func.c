@@ -54,8 +54,9 @@ void ParamProcess()
 			param[disp[1]*2-1]=disp[6]*10+disp[7]; 
 		else 	
 		{
-			z=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];
-			param[3]=z/256;param[4]=z%256;
+			freq=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];
+			param[3]=freq/256;
+			param[4]=freq%256;
 		} 
 	}
 	else
