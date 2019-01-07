@@ -15,15 +15,17 @@ uchar table[17]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x3
 uchar i=0;
 uchar key=99;
 uchar temp;
+uchar d2;
+uchar hide;
 unsigned int timing=0;
 
 extern data uchar  param[9];
 extern data uchar k;
-extern data uchar hide;
 extern bit setup;
 
-void display(uchar d1,d2)
+void display(uchar d1,dt)
 {
+	d2=dt;
 	disp[0]=d1;
 	if(d2==0x0f)
 	{
@@ -121,7 +123,7 @@ void scan() interrupt 1
 	LE2=0;
 	OE=0;
 	i++;
-	if(i==8)
+	if(i>=8)
 	{
 		i=0;
 	}

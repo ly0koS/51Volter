@@ -1,6 +1,6 @@
 #ifndef _Func_
 #define _Func_
-#include "I2C.h"
+#include "IIC.h"
 #include "DISP.h"
 #define uchar unsigned char
 void Calculate();

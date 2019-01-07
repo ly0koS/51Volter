@@ -122,15 +122,21 @@ void read24c02(void)
 	Ack();
 	if(temp==0x55)
 	{
+		param[0]=0x55;
 		for(i=1;i<8;i++)
 		{
+			Ack();
 			param[i]=RcvByte();
-			cAck();
 		}
+		NoAck();
+		Stop();
 	}
 	else
 	{
+		NoAck();
+		Stop();
 		write24c02();
+		Stop();
 	}
 }
 void write24c02(void)

@@ -4,7 +4,7 @@
 */
 
 #include "DISP.h"
-#include "I2C.h"
+#include "IIC.h"
 #include "Func.h"
 #define uchar unsigned char
 #define uint unsigned int
@@ -18,15 +18,13 @@ bit rise;
 bit setupend;
 
 data uchar  param[9]={0x55,50,20,0,50,50,2};
-data uchar  p;
-data uchar  hide;
 data uchar 	k;
 data uint 	para1,para2;
 data uchar 	da;
 data uchar 	so;
 
 extern uchar disp[8];
-extern d2;
+extern uchar d2;
 
 int main()
 {
@@ -41,6 +39,7 @@ int main()
 	TR0=1;
 	TR1=1;
 	read24c02();
+	Calculate();
 	display(0,15);
 	disp[1]=param[6];
 	setup=0;
@@ -57,6 +56,7 @@ int main()
 					setupend=0;
 					write24c02();
 					Calculate();
+					k=99;
 				}
 				disp[1]=param[6];
 				display(0,15);
@@ -135,7 +135,7 @@ int main()
 				NumProcess(keynum);
 			}
 		}
-		else														//Not in Setup Mode
+		else if(setup==0)													//Not in Setup Mode
 		{
 			if(keynum==12)
 			{
@@ -223,13 +223,14 @@ void output(void) interrupt 3
 			if(erflags==1) goto sen;
 			SendByte(0x91);
 			cAck();	
-			if(erflags==1) goto sen;		
+			if(erflags==1) goto sen;
+
 		SendByte(so);
 		cAck();
 	}
 	else if(param[6]==2)
 	{
-		Calculate();
+//		Calculate();
 		recout=~recout;
 		if(recout)  
 		{

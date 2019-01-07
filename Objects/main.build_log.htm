@@ -5,10 +5,10 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¦ÌVision V5.25.3.0
 Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Jeremy Shen, lyoko, LIC=DSXJJ-UH1JT-CC2JV-PN90I-E1BV5-39PT2
+License Information: Jeremy Shen, lyoko, LIC=----
  
 Tool Versions:
-Toolchain:       MDK51 Professional  Version: 9.59.0.0
+Toolchain:       PK51 Prof. Developers Kit  Version: 9.59.0.0
 Toolchain Path:  C:\Keil_v5\C51\BIN
 C Compiler:      C51.exe V9.59.0.0
 Assembler:       A51.exe V8.2.7.0
@@ -18,47 +18,26 @@ Hex Converter:   OH51.exe V2.7.0.0
 CPU DLL:         S8051.DLL V3.122.0.0
 Dialog DLL:      DP51.DLL V2.66.0.0 
 <h2>Project:</h2>
-C:\test\Project_Volter.uvproj
-Project File Date:  01/05/2019
+D:\8051\Volter\Project_Volter.uvproj
+Project File Date:  01/07/2019
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling DISP.c...
 compiling main.c...
-main.c(177): warning C294: unreachable code
-compiling I2C.c...
+main.c(178): warning C294: unreachable code
 compiling Func.c...
 assembling STARTUP.A51...
+compiling IIC.c...
 linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?NOACK?I2C
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_SENDBYTE?I2C
+    SEGMENT: ?PR?_SENDBYTE?IIC
     CALLER1: ?PR?OUTPUT?MAIN
     CALLER2: ?C_C51STARTUP
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0779H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0220H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 0285H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  D2
-    MODULE:  .\Objects\Func.obj (FUNC)
-    ADDRESS: 02D9H
-Program Size: data=67.5 xdata=0 code=2384
+Program Size: data=67.5 xdata=0 code=2430
 creating hex file from ".\Objects\main"...
-".\Objects\main" - 0 Error(s), 8 Warning(s).
-Build Time Elapsed:  00:00:01
+".\Objects\main" - 0 Error(s), 2 Warning(s).
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

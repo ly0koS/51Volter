@@ -1,7 +1,7 @@
 ".\Objects\DISP.obj",
 ".\Objects\main.obj",
-".\Objects\I2C.obj",
 ".\Objects\Func.obj",
-".\Objects\STARTUP.obj" 
+".\Objects\STARTUP.obj",
+".\Objects\IIC.obj" 
 TO ".\Objects\main" 
 PRINT(".\Listings\main.m51") RAMSIZE(256) 
