@@ -94,7 +94,7 @@ void scan() interrupt 1
 	TR0=0;
 	TH0=(65536-500)/256;
 	TL0=(65536-500)%256;
-	if(timing>=60)
+	if(timing>=70)
 	{
 		timing=0;
 		hide=~hide;

@@ -56,8 +56,8 @@ void ParamProcess()
 			param[1]=disp[6]*10+disp[7]; 
 		else 	
 		{
-			freq=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];
-			param[3]=freq/256;
+			freq=disp[5]*100+disp[6]*10+disp[7];
+			param[3]=disp[4];
 			param[4]=freq%256;
 		} 
 	}
@@ -75,13 +75,13 @@ void NumProcess(unsigned int keynum)
 	uchar i;
 	if(k>=4)
 	{
-		if(param[6]==2&d2==15)																//Square Wave-Frequence Mode
+		if(disp[1]==2&d2==15)																//Square Wave-Frequence Mode
 		{
 			if(k==4)
 			{
 				if(keynum==1)																			//Max=1000Hz
 				{
-					disp[k]=keynum;
+					disp[k]=1;
 					for(i=5;i<8;i++)
 					{
 						disp[i]=0;
