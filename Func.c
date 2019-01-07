@@ -12,9 +12,11 @@ extern uchar disp[8];
 extern uchar d2;
 extern uchar k;
 
+data uint g _at_ 0x2f;
+
 void Calculate()
 {
-	uint g,g1,g2;
+	uint g1,g2;
 	uint freq;
 	if(param[6]==1)
 	{
@@ -166,6 +168,9 @@ void write24c02(void)
 		cAck( );							
 		if(erflags==1) goto sen;			
 		SendByte(0x00); 					
+		cAck( );							
+		if(erflags==1) goto sen;
+		SendByte(0xa1); 					
 		cAck( );							
 		if(erflags==1) goto sen;
 	for(i=0;i<8;i++)

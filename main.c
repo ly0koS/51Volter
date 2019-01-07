@@ -76,7 +76,6 @@ int main()
 				case 0xd7: keynum=13;break;//选择波形
 				case 0xb7: keynum=14;break;//选择参数
 				case 0x77: keynum=15;	//确认键
-				default:	 keynum=255;break;
 				}
 		}
 		else
@@ -97,6 +96,7 @@ int main()
 				}
 				disp[1]=param[6];
 				display(0,15);
+				keynum=255;
 			}
 			if(keynum==13)								//select wave
 			{
@@ -115,6 +115,7 @@ int main()
 					disp[1]=1;
 				}
 				display(5,15);
+				keynum=255;
 			}
 			if(keynum==14)								//select param
 			{
@@ -128,6 +129,7 @@ int main()
 				}
 				else
 					selectwp=0;
+				keynum=255;
 			}
 			if(keynum==10)								//go left
 			{
@@ -141,6 +143,7 @@ int main()
 					else if(k>6)
 						k--;
 				}
+				keynum=255;
 			}
 			if(keynum==20)								//go right
 			{
@@ -160,6 +163,7 @@ int main()
 					else
 						k++;
 				}
+				keynum=255;
 			}
 			if(keynum==15)								//confim
 			{
@@ -170,6 +174,7 @@ int main()
 			else if(keynum<=9&&keynum>=0)
 			{
 				NumProcess(keynum);
+				keynum=255;
 			}
 		}
 		else 													//Not in Setup Mode
@@ -182,6 +187,7 @@ int main()
 				display(5,15);
 				selectwp=1; 
 				k=1;
+				keynum=255;
 			}
 			if(keynum==13)
 			{
@@ -189,6 +195,7 @@ int main()
 			  if(disp[1]>=3) 
 					disp[1]=1;
 			  display(0,15);
+				keynum=255;
 			}
 			if(keynum==14)
 			{ 						
@@ -196,6 +203,7 @@ int main()
 					display(0,15);
 			  else    
 					display(0,10);
+				keynum=255;
 			}
 			if(keynum==15)	
 			{
@@ -210,6 +218,7 @@ int main()
 			  	Calculate();
 					EA=1;
 			  }
+				keynum=255;
 			}
 		}
 	}
