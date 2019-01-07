@@ -28,7 +28,7 @@ void display(uchar d1,dt)
 	if(d2==0x0f)
 	{
 		disp[2]=15;
-		switch(param[6])
+		switch(disp[1])
 		{
 			case(1):
 			{

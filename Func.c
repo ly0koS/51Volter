@@ -168,8 +168,6 @@ void write24c02(void)
 		SendByte(0x00); 					
 		cAck( );							
 		if(erflags==1) goto sen;
-		SendByte(0xa1);
-		cAck();
 	for(i=0;i<8;i++)
 	{
 		SendByte(param[i]); 						

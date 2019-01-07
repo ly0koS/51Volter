@@ -44,8 +44,8 @@ int main()
 	TR1=1;
 	read24c02();
 	Calculate();
-	display(0,15);
 	disp[1]=param[6];
+	display(0,15);
 	while(1)
 	{
 		P2=0xf0;
@@ -89,13 +89,14 @@ int main()
 				if(setupend==1)
 				{
 					setupend=0;
+					EA=0;
 					write24c02();
 					Calculate();
-					k=99;
+					EA=1;
+					k=255;
 				}
 				disp[1]=param[6];
 				display(0,15);
-				keynum=255;
 			}
 			if(keynum==13)								//select wave
 			{
@@ -103,10 +104,9 @@ int main()
 				{
 					switch(param[6])
 					{
-						case(1):param[6]=2;break;
-						case(2):param[6]=1;break;
+						case(1):disp[1]=2;break;
+						case(2):disp[1]=1;break;
 					}
-					display(5,15);
 				}
 				else
 				{
@@ -115,7 +115,6 @@ int main()
 					disp[1]=1;
 				}
 				display(5,15);
-				keynum=255;
 			}
 			if(keynum==14)								//select param
 			{
@@ -129,7 +128,6 @@ int main()
 				}
 				else
 					selectwp=0;
-				keynum=255;
 			}
 			if(keynum==10)								//go left
 			{
@@ -143,7 +141,6 @@ int main()
 					else if(k>6)
 						k--;
 				}
-				keynum=255;
 			}
 			if(keynum==20)								//go right
 			{
@@ -163,7 +160,6 @@ int main()
 					else
 						k++;
 				}
-				keynum=255;
 			}
 			if(keynum==15)								//confim
 			{
@@ -174,7 +170,6 @@ int main()
 			else if(keynum<=9&&keynum>=0)
 			{
 				NumProcess(keynum);
-				keynum=255;
 			}
 		}
 		else 													//Not in Setup Mode
@@ -187,7 +182,6 @@ int main()
 				display(5,15);
 				selectwp=1; 
 				k=1;
-				keynum=255;
 			}
 			if(keynum==13)
 			{
@@ -195,7 +189,6 @@ int main()
 			  if(disp[1]>=3) 
 					disp[1]=1;
 			  display(0,15);
-				keynum=255;
 			}
 			if(keynum==14)
 			{ 						
@@ -203,7 +196,6 @@ int main()
 					display(0,15);
 			  else    
 					display(0,10);
-				keynum=255;
 			}
 			if(keynum==15)	
 			{
@@ -218,7 +210,6 @@ int main()
 			  	Calculate();
 					EA=1;
 			  }
-				keynum=255;
 			}
 		}
 	}
