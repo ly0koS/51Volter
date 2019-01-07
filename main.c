@@ -93,7 +93,7 @@ int main()
 				else
 					selectwp=0;
 			}
-			if(keynum==110)								//go left
+			if(keynum==10)								//go left
 			{
 				if(selectwp==0)
 				{
@@ -106,7 +106,7 @@ int main()
 						k--;
 				}
 			}
-			if(keynum==120)								//go right
+			if(keynum==20)								//go right
 			{
 				if(selectwp==0)
 				{

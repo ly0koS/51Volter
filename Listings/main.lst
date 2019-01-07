@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:20:38 PAGE 1   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:42:56 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   3            {
   53   4              setup=0;
   54   4              if(setupend==1)
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:20:38 PAGE 2   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:42:56 PAGE 2   
 
   55   4              {
   56   5                setupend=0;
@@ -105,7 +105,7 @@ line level    source
   93   4              else
   94   4                selectwp=0;
   95   4            }
-  96   3            if(keynum==110)               //go left
+  96   3            if(keynum==10)                //go left
   97   3            {
   98   4              if(selectwp==0)
   99   4              {
@@ -118,7 +118,7 @@ line level    source
  106   5                  k--;
  107   5              }
  108   4            }
- 109   3            if(keynum==120)               //go right
+ 109   3            if(keynum==20)                //go right
  110   3            {
  111   4              if(selectwp==0)
  112   4              {
@@ -126,7 +126,7 @@ line level    source
  114   5                {
  115   6                  if(k<=4)
  116   6                    k=4;
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:20:38 PAGE 3   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:42:56 PAGE 3   
 
  117   6                  else if(disp[4]==1)
  118   6                    k=4;
@@ -190,7 +190,7 @@ line level    source
  176   3          }
  177   2        }
  178   1        return 0;
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:20:38 PAGE 4   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:42:56 PAGE 4   
 
  179   1      }
  180          
@@ -254,7 +254,7 @@ line level    source
  238   3            TL1=para1%256; 
  239   3          }
  240   2          else     
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:20:38 PAGE 5   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 17:42:56 PAGE 5   
 
  241   2          {
  242   3            TH1=para2/256;

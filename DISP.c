@@ -1,8 +1,8 @@
 #include "DISP.h"
 
 sbit OE=P1^3;
-sbit LE1=P1^4;
-sbit LE2=P1^5;
+sbit duan=P1^4;
+sbit wei=P1^5;
 sbit K1=P2^0;
 sbit K2=P2^1;
 
@@ -102,13 +102,8 @@ void scan() interrupt 1
 		hide=~hide;
 		timing=0;
 	}
-	else if(timing==0)
-	{
-		hide=0xff;
-	}
 	t=disp[i];
 	OE=1;
-	LE1=1;
 	if(setup&&(k==i))
 	{
 		P0=table[t]&hide;
@@ -117,10 +112,11 @@ void scan() interrupt 1
 	{
 		P0=table[t];
 	}
-	LE1=0;
-	LE2=1;
+	duan=1;
+	duan=0;
 	P0=sled_bit[i];
-	LE2=0;
+	wei=1;
+	wei=0;
 	OE=0;
 	i++;
 	if(i>=8)

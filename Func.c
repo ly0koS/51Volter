@@ -133,8 +133,6 @@ void read24c02(void)
 	}
 	else
 	{
-		NoAck();
-		Stop();
 		write24c02();
 		Stop();
 	}
@@ -183,10 +181,10 @@ int keyscan()
 			case 0xdd: temp=5;break;
 			case 0xbd: temp=6;break;
 			case 0x7d: temp=7;break;
-			case 0xeb: temp=110;break;//×óÒÆ
+			case 0xeb: temp=10;break;//×óÒÆ
 			case 0xdb: temp=8;break;
 			case 0xbb: temp=9;break;
-			case 0x7b: temp=120;break;//ÓÒÒÆ
+			case 0x7b: temp=20;break;//ÓÒÒÆ
 			case 0xe7: temp=12;break;//ÉèÖÃ¼ü
 			case 0xd7: temp=13;break;//Ñ¡Ôñ²¨ĞÎ
 			case 0xb7: temp=14;break;//Ñ¡Ôñ²ÎÊı
