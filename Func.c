@@ -7,6 +7,7 @@ sbit erflags=PSW^5;
 
 extern data uchar  param[9];
 extern data uint para1,para2;
+extern data da;
 extern uchar disp[8];
 extern uchar d2;
 extern uchar k;
@@ -17,9 +18,22 @@ void Calculate()
 	uint freq;
 	if(param[6]==1)
 	{
-		g=10^6/param[1]/32;
+		freq=param[1];
+		g=10^6/freq/32;
 		para1=65536-g;
 		para2=param[2];
+		da=0;
+		sen:	erflags=0;						  
+			Start( ); 							
+			SendByte(0x90); 				
+			cAck( );							
+			if(erflags==1) goto sen;			
+			SendByte(0x40); 					
+			cAck( );							
+			if(erflags==1) goto sen;
+			SendByte(0x91);
+			cAck();	
+			if(erflags==1) goto sen;
 	}
 	if(param[6]==2)
 	{
@@ -34,17 +48,23 @@ void Calculate()
 void ParamProcess()
 {
 	uchar freq;
-	if(param[6]==1)
+	if(disp[2]==15)
 	{
-		param[1]=disp[6]*10+disp[7];
-	}
-	else if(param[6]==2&&d2==15)
-	{
-		freq=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];
-		param[7]=freq/256,param[8]=freq%256;
+		if(disp[1]==1)
+			param[disp[1]*2-1]=disp[6]*10+disp[7]; 
+		else 	
+		{
+			z=disp[4]*1000+disp[5]*100+disp[6]*10+disp[7];
+			param[3]=z/256;param[4]=z%256;
+		} 
 	}
 	else
-		param[disp[1]*2]=disp[6]*10+disp[7];
+	{
+		if(disp[1]==1) 
+			param[disp[1]*2]=disp[6]*10+disp[7]; 
+		else
+			param[disp[1]*2+1]=disp[6]*10+disp[7];
+	}
 }
 
 void NumProcess(unsigned int keynum)

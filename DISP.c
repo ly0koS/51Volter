@@ -1,7 +1,9 @@
 #include "DISP.h"
-
-
-
+sbit OE=P1^3;
+sbit duan=P1^4;
+sbit wei=P1^5;
+sbit K1=P2^0;
+sbit K2=P2^1;
 
 #define uchar unsigned char
 	
@@ -12,7 +14,7 @@ uchar i=0;
 uchar key=99;
 uchar temp;
 uchar d2;
-uchar hide;
+uchar hide=0xff;
 unsigned int timing=0;
 
 extern data uchar  param[9];
@@ -92,11 +94,10 @@ void scan() interrupt 1
 	TR0=0;
 	TH0=(65536-500)/256;
 	TL0=(65536-500)%256;
-	hide=0xff;
-	if(timing==60)
+	if(timing>=60)
 	{
-		hide=~hide;
 		timing=0;
+		hide=~hide;
 	}
 	t=disp[i];
 	OE=1;

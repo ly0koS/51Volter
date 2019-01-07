@@ -10,11 +10,7 @@
 #define uint unsigned int
 
 sbit recout=P1^0;
-sbit OE=P1^3;
-sbit duan=P1^4;
-sbit wei=P1^5;
-sbit K1=P2^0;
-sbit K2=P2^1;
+
 
 bit erflags;
 bit setup;
@@ -22,9 +18,10 @@ bit selectwp;
 bit rise;
 bit setupend;
 
-data uchar  param[9]={0x55,50,20,0,50,50,2};
+data uchar  param[9]={0x55,25,50,0,50,50,1};
 data uchar 	k;
-data uint 	para1,para2;
+data uint 	para1 _at_ 0x10;
+data uint 	para2 _at_ 0x11;
 data uchar 	da;
 data uchar 	so;
 data uchar	keynum _at_ 0x50;
@@ -40,8 +37,7 @@ int main()
 	EA=1;
 	ET0=1;
 	ET1=1;
-	PT0=1;
-	PT1=0;
+	TMOD=0x11;
 	TH0=(65536-500)/256;
 	TL0=(65536-500)%256;
 	TR0=1;
@@ -80,8 +76,11 @@ int main()
 				case 0xd7: keynum=13;break;//选择波形
 				case 0xb7: keynum=14;break;//选择参数
 				case 0x77: keynum=15;	//确认键
+				default:	 keynum=255;break;
 				}
 		}
+		else
+			keynum=255;
 		if(setup==1)											//Setup Mode
 		{
 			if(keynum==12)								//setting
@@ -180,6 +179,7 @@ int main()
 		}
 		else 													//Not in Setup Mode
 		{
+			k=255;
 			if(keynum==12)
 			{
 				setup=1;
@@ -228,55 +228,28 @@ int main()
 
 void output(void) interrupt 3
 {
-	
 	TR1=0;
 	if(param[6]==1)
 	{
 		TH1=para1/256;
 		TL1=para1%256;
-		if(rise)
-		{
-			if(da<240)
-			{
-				da=da+16;
-			}
-			else if(da==240)
-			{
-				da=255;
-				rise=0;
-			}
+		if(rise) 
+		{ 	
+			if(da<=239)	da=da+16;
+			else {rise=0; da=255;}
 		}
-		else
-		{
-			if(da>16)
-			{
-				da=da-16;
-			}
-			else
-			{
-				da=0;
-				rise=1;
-			}
+		else 
+		{ 	
+			if(da>=17)	da=da-16;
+			else {rise=1; da=0;}
 		}
 		so=para2*da/50;
 		/*Add I2C DAC Code*/
-		sen:	erflags=0;						  
-			Start( ); 							
-			SendByte(0x90); 				
-			cAck( );							
-			if(erflags==1) goto sen;			
-			SendByte(0x00); 					
-			cAck( );							
-			if(erflags==1) goto sen;
-			SendByte(0x91);
-			cAck();	
-			if(erflags==1) goto sen;
 		SendByte(so);
 		cAck();
 	}
 	else if(param[6]==2)
 	{
-//		Calculate();
 		recout=~recout;
 		if(recout)  
 		{
