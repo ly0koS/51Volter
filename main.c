@@ -29,11 +29,9 @@ data uchar 	da;
 data uchar 	so;
 data uchar	keynum _at_ 0x50;
 
-extern uchar disp[8],table[];
-extern uchar code sled_bit[];
+extern uchar disp[8];
 extern uchar d2;
 extern uchar hide;
-extern unsigned int timing;
 extern uchar i;
 
 int main()
@@ -98,6 +96,7 @@ int main()
 				}
 				disp[1]=param[6];
 				display(0,15);
+				keynum=255;
 			}
 			if(keynum==13)								//select wave
 			{
@@ -117,6 +116,7 @@ int main()
 					disp[1]=1;
 				}
 				display(5,15);
+				keynum=255;
 			}
 			if(keynum==14)								//select param
 			{
@@ -130,6 +130,7 @@ int main()
 				}
 				else
 					selectwp=0;
+				keynum=255;
 			}
 			if(keynum==10)								//go left
 			{
@@ -143,6 +144,7 @@ int main()
 					else if(k>6)
 						k--;
 				}
+				keynum=255;
 			}
 			if(keynum==20)								//go right
 			{
@@ -162,15 +164,18 @@ int main()
 					else
 						k++;
 				}
+				keynum=255;
 			}
 			if(keynum==15)								//confim
 			{
 				setupend=1;
 				ParamProcess();
+				keynum=255;
 			}
 			else if(keynum<=9&&keynum>=0)
 			{
 				NumProcess(keynum);
+				keynum=255;
 			}
 		}
 		else 													//Not in Setup Mode
@@ -182,6 +187,7 @@ int main()
 				display(5,15);
 				selectwp=1; 
 				k=1;
+				keynum=255;
 			}
 			if(keynum==13)
 			{
@@ -189,6 +195,7 @@ int main()
 			  if(disp[1]>=3) 
 					disp[1]=1;
 			  display(0,15);
+				keynum=255;
 			}
 			if(keynum==14)
 			{ 						
@@ -196,10 +203,11 @@ int main()
 					display(0,15);
 			  else    
 					display(0,10);
+				keynum=255;
 			}
 			if(keynum==15)	
 			{
-			if(disp[1]!=param[6])
+				if(disp[1]!=param[6])
 			  {
 			   	if(param[6]==1)	
 						Stop();
@@ -210,6 +218,7 @@ int main()
 			  	Calculate();
 					EA=1;
 			  }
+				keynum=255;
 			}
 		}
 	}
@@ -283,39 +292,3 @@ void output(void) interrupt 3
 	TR1=1;
 }
 
-void scan() interrupt 1
-{
-	uchar t;
-	TR0=0;
-	TH0=(65536-500)/256;
-	TL0=(65536-500)%256;
-	hide=0xff;
-	if(timing==60)
-	{
-		hide=~hide;
-		timing=0;
-	}
-	t=disp[i];
-	OE=1;
-	if(setup&&(k==i))
-	{
-		P0=table[t]&hide;
-	}
-	else
-	{
-		P0=table[t];
-	}
-	duan=1;
-	duan=0;
-	P0=sled_bit[i];
-	wei=1;
-	wei=0;
-	OE=0;
-	i++;
-	if(i>=8)
-	{
-		i=0;
-	}
-	timing=timing+1;
-	TR0=1;
-}

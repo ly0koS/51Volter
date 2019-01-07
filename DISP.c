@@ -86,3 +86,39 @@ void delay(uchar ti)
 	}
 }
 
+void scan() interrupt 1
+{
+	uchar t;
+	TR0=0;
+	TH0=(65536-500)/256;
+	TL0=(65536-500)%256;
+	hide=0xff;
+	if(timing==60)
+	{
+		hide=~hide;
+		timing=0;
+	}
+	t=disp[i];
+	OE=1;
+	if(setup&&(k==i))
+	{
+		P0=table[t]&hide;
+	}
+	else
+	{
+		P0=table[t];
+	}
+	duan=1;
+	duan=0;
+	P0=sled_bit[i];
+	wei=1;
+	wei=0;
+	OE=0;
+	i++;
+	if(i>=8)
+	{
+		i=0;
+	}
+	timing=timing+1;
+	TR0=1;
+}
