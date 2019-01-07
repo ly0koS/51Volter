@@ -156,37 +156,36 @@ void write24c02(void)
 
 int keyscan()
 {
-	uchar temp;
+	uchar a,b,temp;
 	key=0xf0;           
-  if(key!=0xf0)
-  {
-		delay(10);      
-		if(key!=0xf0)
-		{
-			 switch(key)
-			 {
-				 case(0xe0):temp=0;break;
-				 case(0xd0):temp=1;break;
-				 case(0xb0):temp=2;break;
-				 case(0x70):temp=3;break;
-			}
-			key=0x0f;
-			delay(10);
-			switch(key)
-			{
-				case(0x0e):temp=temp;break;
-				case(0x0d):temp=temp+4;break;
-				case(0x0b):temp=temp+8;break;
-				case(0x07):temp=temp+12;break;
-			}
-		}
-  }
-	switch(temp)														//To fit keymap
+	delay(5);
+	a=P2;
+	P2=0x0f;
+	delay(5);
+	b=P2;
+	a=a|b;
+	if(a!=0xff)
 	{
-		case(8):temp=110;break;								//go left
-		case(9):temp=8;break;									//fit keymap
-		case(10):temp=9;break;								//fit keymap
-		case(11):temp=120;break;							//go right
-	}
+		while(P2!=0x0f);
+		switch(a)
+		{
+			case 0xee: temp=0;break;
+			case 0xde: temp=1;break;
+			case 0xbe: temp=2;break;
+			case 0x7e: temp=3;break;
+			case 0xed: temp=4;break;
+			case 0xdd: temp=5;break;
+			case 0xbd: temp=6;break;
+			case 0x7d: temp=7;break;
+			case 0xeb: temp=110;break;//左移
+			case 0xdb: temp=8;break;
+			case 0xbb: temp=9;break;
+			case 0x7b: temp=120;break;//右移
+			case 0xe7: temp=12;break;//设置键
+			case 0xd7: temp=13;break;//选择波形
+			case 0xb7: temp=14;break;//选择参数
+			case 0x77: temp=15;	//确认键
+			}
+  }
 	return temp;
 }
