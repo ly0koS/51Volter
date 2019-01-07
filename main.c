@@ -149,19 +149,22 @@ int main()
 			{
 				if(selectwp==0)
 				{
-					if(disp[2]==15&&disp[1]==2)
-					{
-						if(k<=4)
-							k=4;
-						else if(disp[4]==1)
-							k=4;
-					}
-					else if(k<=6)
-						k=6;
-					else if(param[6]==1&&disp[2]==10&&disp[6]==5)
-						k=6;
-					else
+					if(k<7)
 						k++;
+					if((disp[2]==15)&&(disp[1]==2))
+						{
+							if((k<4)||(disp[4]==1))
+								k=4;
+						}
+						else 
+						{
+							if(k<6)
+								k=6;
+							if ((disp[2]!=13)&&(disp[6]==5))
+								k=6;
+							if ((disp[2]==13)&&(disp[6]==8))
+								k=6;
+						}			
 				}
 				keynum=255;
 			}

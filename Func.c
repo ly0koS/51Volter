@@ -64,9 +64,9 @@ void ParamProcess()
 	else
 	{
 		if(disp[1]==1) 
-			param[disp[1]*2]=disp[6]*10+disp[7]; 
+			param[2]=disp[6]*10+disp[7]; 
 		else
-			param[disp[1]*2+1]=disp[6]*10+disp[7];
+			param[5]=disp[6]*10+disp[7];
 	}
 }
 
