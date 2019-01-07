@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:07:42 PAGE 1   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:47:37 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   2          delay(5); 
   53   2          a=P2;
   54   2          P2=0x0f;
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:07:42 PAGE 2   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:47:37 PAGE 2   
 
   55   2          delay(5);
   56   2          b=P2;
@@ -126,7 +126,7 @@ line level    source
  114   5                k=1;
  115   5                disp[1]=1;
  116   5              }
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:07:42 PAGE 3   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:47:37 PAGE 3   
 
  117   4              display(5,15);
  118   4              keynum=255;
@@ -190,7 +190,7 @@ line level    source
  176   4              NumProcess(keynum);
  177   4              keynum=255;
  178   4            }
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:07:42 PAGE 4   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:47:37 PAGE 4   
 
  179   3          }
  180   2          else                          //Not in Setup Mode
@@ -254,7 +254,7 @@ line level    source
  238   3            if(da<=239) da=da+16;
  239   3            else {rise=0; da=255;}
  240   3          }
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:07:42 PAGE 5   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 22:47:37 PAGE 5   
 
  241   2          else 
  242   2          {   

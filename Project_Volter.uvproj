@@ -464,6 +464,11 @@
               <FileType>1</FileType>
               <FilePath>.\IIC.c</FilePath>
             </File>
+            <File>
+              <FileName>IIC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\IIC.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
