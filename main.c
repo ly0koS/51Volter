@@ -33,7 +33,6 @@ extern uchar i;
 
 int main()
 {
-	uchar a,b;
 	EA=1;
 	ET0=1;
 	ET1=1;
@@ -48,38 +47,7 @@ int main()
 	display(0,15);
 	while(1)
 	{
-		P2=0xf0;
-		delay(5);	
-		a=P2;
-		P2=0x0f;
-		delay(5);
-		b=P2;
-		a=a|b;
-		if(a!=0xff)
-		{
-			while(P2!=0x0f);
-			switch(a)
-			{
-				case 0xee: keynum=0;break;
-				case 0xde: keynum=1;break;
-				case 0xbe: keynum=2;break;
-				case 0x7e: keynum=3;break;
-				case 0xed: keynum=4;break;
-				case 0xdd: keynum=5;break;
-				case 0xbd: keynum=6;break;
-				case 0x7d: keynum=7;break;
-				case 0xeb: keynum=10;break;//左移
-				case 0xdb: keynum=8;break;
-				case 0xbb: keynum=9;break;
-				case 0x7b: keynum=20;break;//右移
-				case 0xe7: keynum=12;break;//设置键
-				case 0xd7: keynum=13;break;//选择波形
-				case 0xb7: keynum=14;break;//选择参数
-				case 0x77: keynum=15;	//确认键
-				}
-		}
-		else
-			keynum=255;
+		keynum=keyscan();
 		if(setup==1)											//Setup Mode
 		{
 			if(keynum==12)								//setting

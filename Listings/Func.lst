@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   FUNC                                                              01/12/2019 17:06:16 PAGE 1   
+C51 COMPILER V9.59.0.0   FUNC                                                              01/13/2019 00:50:24 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE FUNC
@@ -9,238 +9,245 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Func.c OPTIMIZE(8,SPEED) BROWSE 
 line level    source
 
    1          #include "Func.h"
-   2          #define uchar unsigned char
-   3          #define uint unsigned int
-   4          
+   2          
+   3          #define uchar unsigned char
+   4          #define uint unsigned int
    5          
-   6          sbit erflags=PSW^5;
-   7          
-   8          extern data uchar  param[9];
-   9          extern data uint para1,para2;
-  10          extern data da;
-  11          extern uchar disp[8];
-  12          extern uchar d2;
-  13          extern uchar k;
-  14          
-  15          data uint g _at_ 0x2f;
+   6          
+   7          sbit erflags=PSW^5;
+   8          
+   9          extern data uchar  param[9];
+  10          extern data uint para1,para2;
+  11          extern data da;
+  12          extern uchar disp[8];
+  13          extern uchar d2;
+  14          extern uchar k;
+  15          extern unsigned int timing=0;
   16          
-  17          void Calculate()
-  18          {
-  19   1        uint g1,g2;
-  20   1        uint freq;
-  21   1        if(param[6]==1)
-  22   1        {
-  23   2          freq=param[1];
-  24   2          g=10^6/freq/32;
-  25   2          para1=65536-g;
-  26   2          para2=param[2];
-  27   2          da=0;
-  28   2          sen:  erflags=0;              
-  29   2            Start( );               
-  30   2            SendByte(0x90);         
-  31   2            cAck( );              
-  32   2            if(erflags==1) goto sen;      
-  33   2            SendByte(0x40);           
-  34   2            cAck( );              
-  35   2            if(erflags==1) goto sen;
-  36   2            SendByte(0x91);
-  37   2            cAck(); 
-  38   2            if(erflags==1) goto sen;
-  39   2        }
-  40   1        if(param[6]==2)
-  41   1        {
-  42   2          freq=param[3]*1000+param[4];
-  43   2          g1=10000/freq*param[5];
-  44   2          g2=10000/freq*(100-param[5]);
-  45   2          para1=65536-g1;
-  46   2          para2=65536-g2;
-  47   2        }
-  48   1      }
-  49          
-  50          void ParamProcess()
-  51          {
-  52   1        uchar freq;
-  53   1        if(disp[2]==15)
-  54   1        {
-C51 COMPILER V9.59.0.0   FUNC                                                              01/12/2019 17:06:16 PAGE 2   
+  17          data uint g _at_ 0x2f;
+  18          
+  19          void Calculate()
+  20          {
+  21   1        uint g1,g2;
+  22   1        uint freq;
+  23   1        if(param[6]==1)
+  24   1        {
+  25   2          freq=param[1];
+  26   2          g=10^6/freq/32;
+  27   2          para1=65536-g;
+  28   2          para2=param[2];
+  29   2          da=0;
+  30   2          sen:  erflags=0;              
+  31   2            Start( );               
+  32   2            SendByte(0x90);         
+  33   2            cAck( );              
+  34   2            if(erflags==1) goto sen;      
+  35   2            SendByte(0x40);           
+  36   2            cAck( );              
+  37   2            if(erflags==1) goto sen;
+  38   2            SendByte(0x91);
+  39   2            cAck(); 
+  40   2            if(erflags==1) goto sen;
+  41   2        }
+  42   1        if(param[6]==2)
+  43   1        {
+  44   2          freq=param[3]*1000+param[4];
+  45   2          g1=10000/freq*param[5];
+  46   2          g2=10000/freq*(100-param[5]);
+  47   2          para1=65536-g1;
+  48   2          para2=65536-g2;
+  49   2        }
+  50   1      }
+  51          
+  52          void ParamProcess()
+  53          {
+  54   1        uchar freq;
+C51 COMPILER V9.59.0.0   FUNC                                                              01/13/2019 00:50:24 PAGE 2   
 
-  55   2          if(disp[1]==1)
-  56   2            param[1]=disp[6]*10+disp[7]; 
-  57   2          else  
-  58   2          {
-  59   3            freq=disp[5]*100+disp[6]*10+disp[7];
-  60   3            param[3]=disp[4];
-  61   3            param[4]=freq%256;
-  62   3          } 
-  63   2        }
-  64   1        else
-  65   1        {
-  66   2          if(disp[1]==1) 
-  67   2            param[2]=disp[6]*10+disp[7]; 
-  68   2          else
-  69   2            param[5]=disp[6]*10+disp[7];
-  70   2        }
-  71   1      }
-  72          
-  73          void NumProcess(unsigned int keynum)
-  74          {
-  75   1        uchar i;
-  76   1        if(k>=4)
-  77   1        {
-  78   2          if(disp[1]==2&d2==15)                               //Square Wave-Frequence Mode
-  79   2          {
-  80   3            if(k==4)
-  81   3            {
-  82   4              if(keynum==1)                                     //Max=1000Hz
-  83   4              {
-  84   5                disp[k]=1;
-  85   5                for(i=5;i<8;i++)
-  86   5                {
-  87   6                  disp[i]=0;
-  88   6                }
-  89   5              }
-  90   4              else if(keynum==0)
-  91   4                disp[k]=keynum;
-  92   4            }
-  93   3            else
-  94   3            {
-  95   4              if(disp[4]==0)
-  96   4              {
-  97   5                disp[4]=16;                                       //disp[4] off
-  98   5                disp[k]=keynum;
-  99   5              }
- 100   4            }
- 101   3          }
- 102   2          else if(k==6)
- 103   2          {
- 104   3            if(param[6]==2&d2==10)
- 105   3            {
- 106   4              if(keynum>=2&&keynum<=7)
- 107   4                disp[k]=keynum;
- 108   4            }
- 109   3            else
- 110   3            {
- 111   4              if(keynum>=1&&keynum<5)                             //Sin Wave-Frequence Mode
- 112   4                disp[k]=keynum;
- 113   4              else if(keynum==5)                                  //Max=50Hz
- 114   4              {
- 115   5                disp[k]=keynum;
- 116   5                disp[7]=0;
-C51 COMPILER V9.59.0.0   FUNC                                                              01/12/2019 17:06:16 PAGE 3   
+  55   1        if(disp[2]==15)
+  56   1        {
+  57   2          if(disp[1]==1)
+  58   2            param[1]=disp[6]*10+disp[7]; 
+  59   2          else  
+  60   2          {
+  61   3            freq=disp[5]*100+disp[6]*10+disp[7];
+  62   3            param[3]=disp[4];
+  63   3            param[4]=freq%256;
+  64   3          } 
+  65   2        }
+  66   1        else
+  67   1        {
+  68   2          if(disp[1]==1) 
+  69   2            param[2]=disp[6]*10+disp[7]; 
+  70   2          else
+  71   2            param[5]=disp[6]*10+disp[7];
+  72   2        }
+  73   1      }
+  74          
+  75          void NumProcess(unsigned int keynum)
+  76          {
+  77   1        uchar i;
+  78   1        if(k>=4)
+  79   1        {
+  80   2          if(disp[1]==2&d2==15)                               //Square Wave-Frequence Mode
+  81   2          {
+  82   3            if(k==4)
+  83   3            {
+  84   4              if(keynum==1)                                     //Max=1000Hz
+  85   4              {
+  86   5                disp[k]=1;
+  87   5                for(i=5;i<8;i++)
+  88   5                {
+  89   6                  disp[i]=0;
+  90   6                }
+  91   5              }
+  92   4              else if(keynum==0)
+  93   4                disp[k]=keynum;
+  94   4            }
+  95   3            else
+  96   3            {
+  97   4              if(disp[4]==0)
+  98   4              {
+  99   5                disp[4]=0;                                        //disp[4] off
+ 100   5                disp[k]=keynum;
+ 101   5              }
+ 102   4            }
+ 103   3          }
+ 104   2          else if(k==6)
+ 105   2          {
+ 106   3            if(param[6]==2&d2==10)
+ 107   3            {
+ 108   4              if(keynum>=2&&keynum<=7)
+ 109   4                disp[k]=keynum;
+ 110   4            }
+ 111   3            else
+ 112   3            {
+ 113   4              if(keynum>=1&&keynum<5)                             //Sin Wave-Frequence Mode
+ 114   4                disp[k]=keynum;
+ 115   4              else if(keynum==5)                                  //Max=50Hz
+ 116   4              {
+C51 COMPILER V9.59.0.0   FUNC                                                              01/13/2019 00:50:24 PAGE 3   
 
- 117   5              }
- 118   4            }
- 119   3          }
- 120   2          else                                                    //maybe else if?
- 121   2          {
- 122   3            if(param[6]==1&d2==10&&disp[6]==5)                    //Max=50Hz
- 123   3            {
- 124   4              disp[7]=0;
- 125   4            }
- 126   3            else
- 127   3              disp[k]=keynum;
- 128   3          }
- 129   2        }
- 130   1      }
- 131          
- 132          void read24c02(void)
- 133          {
- 134   1        uchar temp,i;
- 135   1        sen:  erflags=0;
- 136   1          Start();
- 137   1          SendByte(0xa0);         
- 138   1          cAck( );              
- 139   1          if(erflags==1) goto sen;      
- 140   1          SendByte(0x00);           
- 141   1          cAck( );              
- 142   1          if(erflags==1) goto sen;
- 143   1        temp=RcvByte();
- 144   1        Ack();
- 145   1        if(temp==0x55)
- 146   1        {
- 147   2          param[0]=0x55;
- 148   2          for(i=1;i<8;i++)
- 149   2          {
- 150   3            Ack();
- 151   3            param[i]=RcvByte();
- 152   3          }
- 153   2          NoAck();
- 154   2          Stop();
- 155   2        }
- 156   1        else
- 157   1        {
- 158   2          write24c02();
- 159   2          Stop();
- 160   2        }
- 161   1      }
- 162          void write24c02(void)
- 163          {
- 164   1        uchar i;
- 165   1        sen:  erflags=0;              
- 166   1          Start( );               
- 167   1          SendByte(0xa0);         
- 168   1          cAck( );              
- 169   1          if(erflags==1) goto sen;      
- 170   1          SendByte(0x00);           
- 171   1          cAck( );              
- 172   1          if(erflags==1) goto sen;
- 173   1          SendByte(0xa1);           
- 174   1          cAck( );              
- 175   1          if(erflags==1) goto sen;
- 176   1        for(i=0;i<8;i++)
- 177   1        {
- 178   2          SendByte(param[i]);             
-C51 COMPILER V9.59.0.0   FUNC                                                              01/12/2019 17:06:16 PAGE 4   
+ 117   5                disp[k]=keynum;
+ 118   5                disp[7]=0;
+ 119   5              }
+ 120   4            }
+ 121   3          }
+ 122   2          else                                                    //maybe else if?
+ 123   2          {
+ 124   3            if(param[6]==1&d2==10&&disp[6]==5)                    //Max=50Hz
+ 125   3            {
+ 126   4              disp[7]=0;
+ 127   4            }
+ 128   3            else
+ 129   3              disp[k]=keynum;
+ 130   3          }
+ 131   2        }
+ 132   1      }
+ 133          
+ 134          
+ 135          uint keyscan()
+ 136          {
+ 137   1        uint keynum;
+ 138   1        uchar a,b;
+ 139   1        P2=0xf0;
+ 140   1        delay(5); 
+ 141   1        a=P2;
+ 142   1        P2=0x0f;
+ 143   1        delay(5);
+ 144   1        b=P2;
+ 145   1        a=a|b;
+ 146   1        if(a!=0xff)
+ 147   1        {
+ 148   2          while(P2!=0x0f);
+ 149   2          switch(a)
+ 150   2          {
+ 151   3            case 0xee: keynum=0;break;
+ 152   3            case 0xde: keynum=1;break;
+ 153   3            case 0xbe: keynum=2;break;
+ 154   3            case 0x7e: keynum=3;break;
+ 155   3            case 0xed: keynum=4;break;
+ 156   3            case 0xdd: keynum=5;break;
+ 157   3            case 0xbd: keynum=6;break;
+ 158   3            case 0x7d: keynum=7;break;
+ 159   3            case 0xeb: keynum=10;break;//左移
+ 160   3            case 0xdb: keynum=8;break;
+ 161   3            case 0xbb: keynum=9;break;
+ 162   3            case 0x7b: keynum=20;break;//右移
+ 163   3            case 0xe7: keynum=12;break;//设置键
+ 164   3            case 0xd7: keynum=13;break;//选择波形
+ 165   3            case 0xb7: keynum=14;break;//选择参数
+ 166   3            case 0x77: keynum=15; //确认键
+ 167   3          }
+ 168   2        }
+ 169   1        else
+ 170   1          keynum=255;
+ 171   1        return keynum;
+ 172   1      }
+ 173          
+ 174          void read24c02(void)
+ 175          {
+ 176   1        uchar temp,i;
+ 177   1        sen:  erflags=0;
+ 178   1          Start();
+C51 COMPILER V9.59.0.0   FUNC                                                              01/13/2019 00:50:24 PAGE 4   
 
- 179   2          cAck( );
- 180   2        }
- 181   1        Stop();
- 182   1      }
- 183          
- 184          uchar keyscan()
- 185          {
- 186   1        uchar a,b,temp; 
- 187   1        P2=0xf0;
- 188   1        delay(5); 
- 189   1        a=P2;
- 190   1        P2=0x0f;
- 191   1        delay(5);
- 192   1        b=P2;
- 193   1        a=a|b;
- 194   1        if(a!=0xff)
- 195   1        {
- 196   2          while(P2!=0x0f);
- 197   2          switch(a)
- 198   2          {
- 199   3            case 0xee: temp=0;break;
- 200   3            case 0xde: temp=1;break;
- 201   3            case 0xbe: temp=2;break;
- 202   3            case 0x7e: temp=3;break;
- 203   3            case 0xed: temp=4;break;
- 204   3            case 0xdd: temp=5;break;
- 205   3            case 0xbd: temp=6;break;
- 206   3            case 0x7d: temp=7;break;
- 207   3            case 0xeb: temp=10;break;//左移
- 208   3            case 0xdb: temp=8;break;
- 209   3            case 0xbb: temp=9;break;
- 210   3            case 0x7b: temp=20;break;//右移
- 211   3            case 0xe7: temp=12;break;//设置键
- 212   3            case 0xd7: temp=13;break;//选择波形
- 213   3            case 0xb7: temp=14;break;//选择参数
- 214   3            case 0x77: temp=15; //确认键
- 215   3            }
- 216   2        }
- 217   1        return temp;
- 218   1      }
- 219          
+ 179   1          SendByte(0xa0);         
+ 180   1          cAck( );              
+ 181   1          if(erflags==1) goto sen;      
+ 182   1          SendByte(0x00);           
+ 183   1          cAck( );              
+ 184   1          if(erflags==1) goto sen;
+ 185   1        temp=RcvByte();
+ 186   1        Ack();
+ 187   1        if(temp==0x55)
+ 188   1        {
+ 189   2          param[0]=0x55;
+ 190   2          for(i=1;i<8;i++)
+ 191   2          {
+ 192   3            Ack();
+ 193   3            param[i]=RcvByte();
+ 194   3          }
+ 195   2          NoAck();
+ 196   2          Stop();
+ 197   2        }
+ 198   1        else
+ 199   1        {
+ 200   2          write24c02();
+ 201   2          Stop();
+ 202   2        }
+ 203   1      }
+ 204          void write24c02(void)
+ 205          {
+ 206   1        uchar i;
+ 207   1        sen:  erflags=0;              
+ 208   1          Start( );               
+ 209   1          SendByte(0xa0);         
+ 210   1          cAck( );              
+ 211   1          if(erflags==1) goto sen;      
+ 212   1          SendByte(0x00);           
+ 213   1          cAck( );              
+ 214   1          if(erflags==1) goto sen;
+ 215   1          SendByte(0xa1);           
+ 216   1          cAck( );              
+ 217   1          if(erflags==1) goto sen;
+ 218   1        for(i=0;i<8;i++)
+ 219   1        {
+ 220   2          SendByte(param[i]);             
+ 221   2          cAck( );
+ 222   2        }
+ 223   1        Stop();
+ 224   1      }
+ 225          
+ 226          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    839    ----
+   CODE SIZE        =    895    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       7
+   DATA SIZE        =      2       8
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

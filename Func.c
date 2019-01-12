@@ -1,4 +1,5 @@
 #include "Func.h"
+
 #define uchar unsigned char
 #define uint unsigned int
 
@@ -11,6 +12,7 @@ extern data da;
 extern uchar disp[8];
 extern uchar d2;
 extern uchar k;
+extern unsigned int timing=0;
 
 data uint g _at_ 0x2f;
 
@@ -94,7 +96,7 @@ void NumProcess(unsigned int keynum)
 			{
 				if(disp[4]==0)
 				{
-					disp[4]=16;																				//disp[4] off
+					disp[4]=0;																				//disp[4] off
 					disp[k]=keynum;
 				}
 			}
@@ -127,6 +129,46 @@ void NumProcess(unsigned int keynum)
 				disp[k]=keynum;
 		}
 	}
+}
+
+
+uint keyscan()
+{
+	uint keynum;
+	uchar a,b;
+	P2=0xf0;
+	delay(5);	
+	a=P2;
+	P2=0x0f;
+	delay(5);
+	b=P2;
+	a=a|b;
+	if(a!=0xff)
+	{
+		while(P2!=0x0f);
+		switch(a)
+		{
+			case 0xee: keynum=0;break;
+			case 0xde: keynum=1;break;
+			case 0xbe: keynum=2;break;
+			case 0x7e: keynum=3;break;
+			case 0xed: keynum=4;break;
+			case 0xdd: keynum=5;break;
+			case 0xbd: keynum=6;break;
+			case 0x7d: keynum=7;break;
+			case 0xeb: keynum=10;break;//左移
+			case 0xdb: keynum=8;break;
+			case 0xbb: keynum=9;break;
+			case 0x7b: keynum=20;break;//右移
+			case 0xe7: keynum=12;break;//设置键
+			case 0xd7: keynum=13;break;//选择波形
+			case 0xb7: keynum=14;break;//选择参数
+			case 0x77: keynum=15;	//确认键
+		}
+	}
+	else
+		keynum=255;
+	return keynum;
 }
 
 void read24c02(void)
@@ -181,39 +223,4 @@ void write24c02(void)
 	Stop();
 }
 
-uchar keyscan()
-{
-	uchar a,b,temp; 
-	P2=0xf0;
-	delay(5);	
-	a=P2;
-	P2=0x0f;
-	delay(5);
-	b=P2;
-	a=a|b;
-	if(a!=0xff)
-	{
-		while(P2!=0x0f);
-		switch(a)
-		{
-			case 0xee: temp=0;break;
-			case 0xde: temp=1;break;
-			case 0xbe: temp=2;break;
-			case 0x7e: temp=3;break;
-			case 0xed: temp=4;break;
-			case 0xdd: temp=5;break;
-			case 0xbd: temp=6;break;
-			case 0x7d: temp=7;break;
-			case 0xeb: temp=10;break;//左移
-			case 0xdb: temp=8;break;
-			case 0xbb: temp=9;break;
-			case 0x7b: temp=20;break;//右移
-			case 0xe7: temp=12;break;//设置键
-			case 0xd7: temp=13;break;//选择波形
-			case 0xb7: temp=14;break;//选择参数
-			case 0x77: temp=15;	//确认键
-			}
-  }
-	return temp;
-}
 
