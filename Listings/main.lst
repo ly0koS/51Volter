@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:50:24 PAGE 1   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:52:51 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   2          {
   53   3            if(keynum==12)                //setting
   54   3            {
-C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:50:24 PAGE 2   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:52:51 PAGE 2   
 
   55   4              setup=0;
   56   4              if(setupend==1)
@@ -126,7 +126,7 @@ line level    source
  114   4              keynum=255;
  115   4            }
  116   3            if(keynum==20)                //go right
-C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:50:24 PAGE 3   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:52:51 PAGE 3   
 
  117   3            {
  118   4              if(selectwp==0)
@@ -190,7 +190,7 @@ line level    source
  176   4                display(0,10);
  177   4              keynum=255;
  178   4            }
-C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:50:24 PAGE 4   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:52:51 PAGE 4   
 
  179   3            if(keynum==15)  
  180   3            {
@@ -254,7 +254,7 @@ line level    source
  238          
 *** WARNING C294 IN LINE 196 OF main.c: unreachable code
 
-C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:50:24 PAGE 5   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/13/2019 00:52:51 PAGE 5   
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

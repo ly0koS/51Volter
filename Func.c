@@ -12,7 +12,6 @@ extern data da;
 extern uchar disp[8];
 extern uchar d2;
 extern uchar k;
-extern unsigned int timing=0;
 
 data uint g _at_ 0x2f;
 
@@ -96,7 +95,6 @@ void NumProcess(unsigned int keynum)
 			{
 				if(disp[4]==0)
 				{
-					disp[4]=0;																				//disp[4] off
 					disp[k]=keynum;
 				}
 			}
