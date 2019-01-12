@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 23:20:35 PAGE 1   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/12/2019 17:06:16 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   2          delay(5); 
   53   2          a=P2;
   54   2          P2=0x0f;
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 23:20:35 PAGE 2   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/12/2019 17:06:16 PAGE 2   
 
   55   2          delay(5);
   56   2          b=P2;
@@ -126,7 +126,7 @@ line level    source
  114   5                k=1;
  115   5                disp[1]=1;
  116   5              }
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 23:20:35 PAGE 3   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/12/2019 17:06:16 PAGE 3   
 
  117   4              display(5,15);
  118   4              keynum=255;
@@ -190,7 +190,7 @@ line level    source
  176   4            }
  177   3            else if(keynum<=9&&keynum>=0)
  178   3            {
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 23:20:35 PAGE 4   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/12/2019 17:06:16 PAGE 4   
 
  179   4              NumProcess(keynum);
  180   4              keynum=255;
@@ -254,7 +254,7 @@ line level    source
  238   2          TL1=para1%256;
  239   2          if(rise) 
  240   2          {   
-C51 COMPILER V9.59.0.0   MAIN                                                              01/07/2019 23:20:35 PAGE 5   
+C51 COMPILER V9.59.0.0   MAIN                                                              01/12/2019 17:06:16 PAGE 5   
 
  241   3            if(da<=239) da=da+16;
  242   3            else {rise=0; da=255;}
